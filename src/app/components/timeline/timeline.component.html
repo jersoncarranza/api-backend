@@ -1,0 +1,93 @@
+   <!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+
+   <div class="row">
+        <div class="col-12 col-lg-10">
+            <app-sidebar (sended)="refresh($event)"></app-sidebar>      
+        </div>         
+   </div>
+    <div class="row">
+
+        <div class="col-12 col-lg-10">
+               
+            <div class="row">
+                <div class="col-12">
+                <div class="text-center margin-botton-btn btn-more">
+                    <button class="btn btn-outline-primary btn-touch" (click)="refresh($event)"> 
+                            <span class="material-icons" style="font-size: 12px">autorenew</span>
+                    </button>
+                </div>
+                </div>
+            </div> 
+            
+            <div id="publications">
+                <div *ngFor="let publication of publications" class="border-publication">
+                    <div class="row">
+                             
+                            <div class="col-2 col-md-2 col-lg-1">
+                                <div class="image-user">
+                                    <img src="{{url + 'get-image-user/'+ publication.user.image}}" *ngIf="publication.user.image" alt="">
+                                    <img src="assets/user.jpg" *ngIf="!publication.user.image" alt="twenty">
+                                </div>  
+                            </div>
+
+                            <div class="col-10 col-md-10 col-lg-11">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <a [routerLink]="['/perfil',publication.user._id]" class="font-name">
+                                            <span class="text-capitalize font-weight-bold ">
+                                                {{publication.user.name + ' ' + publication.user.lastname}}
+                                            </span>  
+                                        </a>
+                                        |
+                                        <span class="date font-weight-light">
+                                            {{(publication.created_at | amFromUnix) | amLocale: 'es'| amTimeAgo }}
+                                        </span>
+                                        <span class="float-right"  *ngIf="publication.user._id == identity._id">
+                                            <button class="btn btn-link" (click)="deletePublication( publication._id)"  *ngIf="showImage != publication._id">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                 </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="publication-text  font-text-p">
+                                            {{publication.text}}
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="publication.file != 'null' ">
+                                    <div class="col-12 text-center" >
+                                        <img class="img-pub" src="{{ url + 'get-image-pub/' + publication.file}}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="text-center margin-botton-btn btn-more"  *ngIf="publications && publications.length">
+                        <button class="btn btn-outline-primary btn-touch" (click)="viewMore()" *ngIf="!noMore">
+                          <span class="fas fa-angle-double-down"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<!-- </div> -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>

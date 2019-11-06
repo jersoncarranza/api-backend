@@ -1,0 +1,87 @@
+#data-profile{
+    width: 200px;
+}
+.avatar{
+    width: 200px;
+}
+
+.margin-botton-btn{
+    margin-top: 0.5em;
+}
+.img-profile{
+    width: 150px;
+    border-radius: 10%;
+    border: 0.1rem solid salmon;
+}
+img{
+    width: 50px;
+}
+
+.border-publication{
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    border: 0.6px solid #f2f3f4;
+}
+.line-down{
+    border-bottom: 2px solid #cfcfcf;
+    border-radius: 10%;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+@media only screen and (min-width : 10px) and (max-width : 575px) {
+
+    .text-name{
+        font-size: 0.8rem;
+    }
+    .avatar{
+        width: 100px;
+    }
+    img{
+        width: 25px; 
+        height:  25px;     
+        position: absolute;
+        border-radius: 50%;
+        margin-top: 9px;
+    }
+
+    .margin-botton-btn{
+        margin-bottom: 10%;
+    }
+  
+}
+
+@media only screen and (min-width : 576px) and (max-width : 991px) {
+
+    .col-md-pad{
+        margin-left: 3em;
+    }
+
+
+
+    img{
+        height: 35px;
+        width: 35px;      
+        position: absolute;
+        border-radius: 50%;
+        margin-top: 9px;
+        border: 1px solid #cfcfcf;
+    }
+}
+
+@media only screen and (min-width : 991px) and (max-width : 1600px) {
+
+    .col-md-pad{
+        margin-left: 3em;
+    }
+
+
+
+    img{
+        height: 35px;
+        width: 35px;      
+        position: absolute;
+        border-radius: 50%;
+        margin-top: 9px;
+        border: 1px solid #cfcfcf;
+    }
+}

@@ -1,0 +1,40 @@
+.pad-bottom{
+    padding-bottom: 2em !important;
+}
+
+#data-profile{
+    width: 120px;
+}
+.avatar{
+    width: 120px;
+}
+.img-profile{
+    width: 65px;
+    border-radius: 10%;
+    border: 0.1rem solid #fff;
+}
+
+p{
+    margin-top: 0 !important;
+    margin-bottom: 0rem !important;
+    margin: 0 !important;
+}
+.cls-letter{
+    font-size: 0.9rem;
+}
+
+.border-tab-stats{
+    width: 2px;
+    height: 90%;
+    margin-bottom: 2em;
+    background: #60acff;
+    position: absolute;
+    margin-left: -10px;
+}
+@media only screen and (min-width : 10px) and (max-width : 575px) {
+    .btn{
+        border-radius: 1.25rem !important;
+        padding: 0.01rem 1rem !important;
+        font-size: 0.9em;
+    }
+}

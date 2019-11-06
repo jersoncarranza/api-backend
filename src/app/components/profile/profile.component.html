@@ -1,0 +1,69 @@
+<div class="row pad-bottom">
+        <div class="col-2 col-md-2 col-lg-2">     
+            <div id="data-profile" *ngIf="user">
+                <div class="avatar">
+                    <img class="img-profile" src="{{url + 'get-image-user/' + user.image}}" *ngIf='user.image' alt="">
+                    <img class="img-profile" src="assets/user.png" *ngIf='!user.image' alt="">
+                </div>
+                <span class="badge  badge-secondary" *ngIf="followed">te sigue</span>
+                 
+            </div> 
+        </div> 
+                
+        <div class="col-5  col-md-3 col-lg-4" *ngIf="user">
+            <div class="user-name">
+                <p class="date">  
+                    <span class="text-capitalize"> <b> {{user.name + ' ' + user.lastname}}</b></span>
+                    </p>
+                <p class="date">{{user.nickname}}</p> 
+
+                    <button class="btn btn-outline-primary" *ngIf="!following" (click)="followUser(user._id)">
+                        Seguir
+                    </button>
+                    <button 
+                        class="btn btn-outline-primary" 
+                        *ngIf="following" 
+                        (click)="unfollowUser(user._id)"
+                        (mouseenter)="mouseEnter(user._id)"
+                        (mouseleave)="mouseLeave()"
+                        class="btn btn-outline-success"  [class.btn-outline-danger]="user._id == followUserOver"
+                        >
+                        <span *ngIf="user._id == followUserOver; else tempFollow">
+                            Dejar de seguir
+                        </span>
+                        <ng-template #tempFollow>
+                            <span>
+                                Siguiendo
+                            </span>
+                        </ng-template>
+                    </button>
+                </div>
+        </div>
+
+        <div class="col-3  col-md-3 col-lg-2" *ngIf="stats">
+        
+                <div class="border-tab-stats"></div>
+                <table >
+                    <tr>
+                        <td> <p class="cls-letter font-weight-bold">{{stats.following}}</p></td>
+                        <td> <a [routerLink]="['/siguiendo', id, 1]"><p class="cls-letter"> Siguiendo</p></a></td>
+                    </tr>
+                    <tr>    
+                        <td> <p class="cls-letter font-weight-bold">{{stats.followed}}</p> </td>
+                        <td> <a [routerLink]="['/seguidores', id, 1]"><p class="cls-letter"> Seguidores</p></a> </td>
+                    </tr>  
+                    <tr>
+                        <td> <p class="cls-letter font-weight-bold">{{stats.publications}}</p>   </td>
+                        <td><p class="cls-letter"> Publicaciones</p></td>
+                    </tr>                  
+                </table>
+                
+        </div>             
+</div>
+ 
+<div class="row" *ngIf="user">
+    <div class="col-12 col-sm-10 col-md-8">
+        <app-publications [user]="user._id"></app-publications>
+    </div>
+</div> 
+<!-- <app-sidebar></app-sidebar> -->

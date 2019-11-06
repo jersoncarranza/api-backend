@@ -1,0 +1,55 @@
+   <!-- <div class="row">
+       <div class="col-9">
+           <h3>Publicaciones</h3>
+       </div>
+   </div> -->
+
+    <div id="publications"  class="border-publication" *ngFor="let publication of publications">
+        <div class="row ">
+            <div class="col-1 col-sm-2 col-md-2">
+                <div class="image-user">
+                    <img src="{{url + 'get-image-user/'+ publication.user.image}}" *ngIf="publication.user.image" alt="">
+                    <img src="assets/user.jpg" *ngIf="!publication.user.image" alt="twenty">
+                </div>
+            </div>
+            <div class="col-11 col-sm-10 col-md-10 col-md-pad">
+                <span class="text-capitalize text-name">
+                    <span class="font-weight-bold">
+                        {{publication.user.name + ' ' + publication.user.lastname}}
+                    </span>
+                    | 
+                    <span class="font-weight-light">
+                        {{(publication.created_at | amFromUnix) | amLocale: 'es'| amTimeAgo }}
+
+                    </span>
+                </span>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="offset-1 col-11 col-sm-10 col-md-9 col-md-pad">
+                <span class="text-name">
+                    {{publication.text}}
+                </span>
+            </div>
+        </div>
+        <!-- <div class="line-down"></div> -->
+    </div>
+
+    <div class="row" *ngIf="publications && publications.length ">
+        <div class="col-11">
+            <div class="text-center margin-botton-btn">
+
+                <button class="btn btn-primary" (click)="viewMore()" *ngIf="!noMore">
+                    Ver más publicaciones
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+        
+    
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    

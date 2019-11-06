@@ -1,0 +1,22 @@
+/*Cabecera*/
+.navigation{
+    padding: 0px !important;
+   
+}
+
+.active{
+    border-bottom: 3px solid yellow;
+}
+
+.navigation .navbar{
+    border-radius: 0px !important;
+    background: #e53c37 !important;
+    border: none;
+}
+
+.navigation .navbar *{
+    color: white !important;
+}
+.navigation .navbar a:hover{
+    background: #cc1717 !important;
+}

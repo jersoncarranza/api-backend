@@ -1,0 +1,69 @@
+<div class="jumbotron">
+    <div class="container"> 
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+
+                <div class="alert alert-success" *ngIf="status=='success'">
+                    Registro completado correctamente, <a [routerLink]="['/login']">Identificate aqui</a>
+                </div>
+                <div class="alert alert-danger" *ngIf="status=='error'">
+                    Registro no ha podido completarse, quizas tu email o nickname esta en uso <a [routerLink]="['/login']">Identificate aqui</a>
+                </div>
+                <form name="form" #F="ngForm" (ngSubmit)="F.form.valid && onSubmit(user)" >
+                    <div class="form-group">
+                        <label>name</label>
+                        <input name="name"  type="text" class="form-control" placeholder="name" #name="ngModel"
+                         [(ngModel)]="user.name"  required/>
+                        <span *ngIf="name.invalid && name.touched">
+                            <div>name incorret</div>
+                        </span> 
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input name="email"  type="email" class="form-control" placeholder="Email" #email="ngModel"
+                         [(ngModel)]="user.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required/>
+                        <span *ngIf="email.invalid && email.touched">
+                            <div>Email incorrecto</div>
+                        </span> 
+                    </div>
+                     <div class="form-group">
+                        <label>Apellidos</label>
+                        <input name="lastname"  type="text" class="form-control" placeholder="Apellidos" #lastname="ngModel"
+                         [(ngModel)]="user.lastname" required/>
+                        <span *ngIf="lastname.invalid && lastname.touched">
+                            <div >lastname is required</div>
+                        </span> 
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Apodo</label>
+                        <input name="nickname"  type="text" class="form-control" placeholder="nickname" #nickname="ngModel" 
+                        [(ngModel)]="user.nickname" required/>
+                        <span *ngIf="nickname.invalid && nickname.touched">
+                            <div>nickname is required</div>
+                        </span> 
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input name="password" id="register-password" type="password" class="form-control" placeholder="Password" #password="ngModel"  
+                        [(ngModel)]="user.password" required>
+                        <span *ngIf="password.invalid && password.touched">
+                            <div>password is required</div>
+                        </span> 
+                    </div>
+                    
+                        <div class="form-group">
+                        <label for="confirm-password">Password</label>
+                        <input name="confirmpassword" id="confirm-password" type="password" class="form-control" placeholder="Repit Password" #confirmpassword="ngModel"  [(ngModel)]="user.confirmpassword" required>
+                        <span *ngIf="confirmpassword.invalid && confirmpassword.touched">
+                            <div>confirm password is required</div>
+                        </span> 
+                    </div> 
+                    <input type="submit" value="Register" class="btn btn-success" [disabled]="!F.form.valid">
+                  </form>
+                  
+            </div>
+        </div>
+    </div>
+</div>

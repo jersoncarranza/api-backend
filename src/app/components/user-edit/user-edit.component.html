@@ -1,0 +1,119 @@
+
+    <div class="col-12 col-lg-10"> 
+        <div class="row">
+            <div class="col-12">
+
+                <div class="alert alert-success" *ngIf="status=='success'">
+                    Ok
+                </div>
+                <div class="alert alert-warning" *ngIf="status=='error'">
+                    No {{this.message}}
+                </div>
+            </div>
+        </div>
+            
+        <div class="row">
+
+            <div class="col-12 text-center">
+                <h1>{{title}}</h1> 
+            </div>
+        </div>
+        <form #userEditForm="ngForm" (ngSubmit)="onSubmit()">
+            
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label for="idnombre">Nombre</label> 
+                    </div>
+                    <div class="col-10">
+
+                        <input id="idnombre" class="form-control" type="text" name="name" #name="ngModel" [(ngModel)]="user.name" required>
+                        <span *ngIf="!name.value && name.touched">
+                            El nombre es obligatorio
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label>Apellido</label>
+                    </div>
+                    <div class="col-10">
+                        <input class="form-control" type="text" name="lastname" #lastname="ngModel" [(ngModel)]="user.lastname" required>
+                        <span *ngIf="!lastname.value && lastname.touched">
+                            El apellido es obligatorio
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label>Sobrenombre</label>
+                    </div>
+                    <div class="col-10">
+                        <input class="form-control" type="text" name="nickname" #nickname="ngModel" [(ngModel)]="user.nickname" required>
+                        <span *ngIf="!nickname.value && nickname.touched">
+                            Sobrenombre es obligatorio
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label>Correo</label>
+                    </div>
+                    <div class="col-10">
+                        <input class="form-control" type="email" placeholder="correo@maill.com" name="email" #email="ngModel" [(ngModel)]="user.email" disabled required>
+                        <span *ngIf="!email.value && email.touched" >
+                            El correo es obligatorio
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group " *ngIf="identity.image">
+                <div class="row">
+                    <div class="col-2">
+                        
+                        <div class="img-fluid image-user">
+                            <img src="{{ url + 'get-image-user/' + identity.image}}"/>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <input type="file" id="file" (change)="fileChangeEvent($event)"/>
+                        <label for="file"  class="btn btn-outline-light">
+                        <span> Subir Foto
+                            <i class="fa fa-id-badge" aria-hidden="true"></i>
+                            
+                        </span>
+                    </label>
+                    </div>
+
+                </div>    
+                
+
+
+            </div>
+            <div class="form-group row">
+                <div class="col-12">
+                    <div class="text-center">
+                        <button class="btn btn-outline-primary" [disabled]="!userEditForm.form.valid" >
+                            Guardar
+                            <i class="fa fa-floppy-o"></i>
+                        </button>
+                        <div class="float-right">
+                                <button (click)="logout()" class="btn btn-outline-dark">
+                                    <i class="fa fa-power-off"></i>
+                                </button>
+                            </div>
+                    </div>
+
+                </div>
+               
+            </div> 
+        </form>
+    </div>
+

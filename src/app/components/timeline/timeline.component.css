@@ -1,0 +1,75 @@
+.image-user{
+    width: 40px;
+    height: 40px;
+    border-radius: 75px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.image-user img{
+    width: 50px;
+    text-align: center;
+    margin:  0 auto;
+}
+
+.img-pub{
+    width: 200px;
+
+}
+.avatar{
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-top: 9px;
+    margin-right: 2px;
+}
+
+.margin-botton-btn{
+    margin-top: 0.5em;
+}
+
+.border-publication{
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    border: 0.6px solid #f2f3f4;
+}
+
+
+.btn-touch {
+    border-radius: 50% !important;
+
+}
+.margin-btn-touch{
+    margin-top: .5em;
+}
+
+.font-name{
+    font-size: 13px !important;
+    color: black;
+}
+
+@media only screen and (min-width : 10px) and (max-width : 575px) {
+    .margin-cont-small{
+        padding-bottom: 10%;
+        margin-bottom: 10%;
+    }
+    .margin-botton-btn{
+        margin-top: 0.5em;
+        margin-bottom: 10%;
+    }
+}
+
+
+
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+    .font-name{
+        margin-left: 1em !important;
+    }
+
+    .publication-text{
+        margin-left: 1em !important;
+        
+    }
+}
+

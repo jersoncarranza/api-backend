@@ -1,0 +1,34 @@
+
+.image-user{
+    width: 20px;
+    height: 20px; 
+}
+
+.image-user img{
+    border-radius: 40px;
+    width: 40px;
+    text-align: center;
+}
+.transition {
+    width: 100px;
+    height: 5px;
+    background: #007bff;
+    transition: width 2s, height 2s, margin 2s;
+    margin: 2px auto 0;
+    margin-bottom: 2em;
+}
+.transition:hover{
+    width: 90%;
+    height: 5px;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    background: #094bcf;
+}
+h1{
+    margin: 0.1em 0;
+} 
+.display-user{
+    display: block;
+    height: 210px;
+}   
+

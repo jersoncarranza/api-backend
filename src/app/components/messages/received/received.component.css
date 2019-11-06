@@ -1,0 +1,19 @@
+.avatar{
+    width: 120px;
+}
+.img-profile{
+    width: 65px;
+    border-radius: 10%;
+    border: 0.1rem solid #fff;
+}
+#data-profile{
+    width: 120px;
+}
+.img-profile{
+    width: 150px;
+    border-radius: 10%;
+    border: 0.1rem solid salmon;
+}
+img{
+    width: 50px;
+}

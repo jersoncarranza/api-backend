@@ -1,0 +1,22 @@
+.image-user{
+    width: 60px;
+    /* height: 60px; */
+    /* border-radius: 75px; */
+    /* overflow: hidden; */
+    /* margin-right: 10px; */
+}
+
+.image-user img{
+    width: 60px;
+    text-align: center;
+    margin:  0 auto;
+}
+
+img{
+    /* width: 50px; */
+}
+[type="file"] {
+    height: 0;
+    overflow: hidden;
+    width: 0;
+  }
