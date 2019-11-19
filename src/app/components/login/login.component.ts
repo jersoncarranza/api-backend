@@ -23,16 +23,17 @@ export class LoginComponent implements OnInit {
     private _userService: UserService
   ) {
     this.title = 'Identificate';
-    this.user = new User("","","","","","ROLE_USER","",	"",	"");
+    this.user = new User("","","","","","","",	"",	"","",""); 
    }
 
   ngOnInit() {
-    this.verifyLogin();
+    //this.verifyLogin();
   }
 	  
 	verifyLogin(){
 		this.identity = this._userService.getIdendity();
 		if(this.identity != null){
+			
 			this._router.navigate(['/']);
 		}
 	}
@@ -47,7 +48,7 @@ export class LoginComponent implements OnInit {
 				if(!this.token.length == true){
 					this.status='error'; 
 				}else{
-					//Persistrir datos de usuario
+					//Persistir datos de usuario
 					localStorage.setItem('token', this.token);
 					localStorage.setItem('identity', JSON.stringify(this.user)); 
 					//Conseguir los contadores o estadisticas del usuario
@@ -85,7 +86,6 @@ export class LoginComponent implements OnInit {
 			}
 		)
 	}
-
 	getCounters(){
 		this._userService.getCounters().subscribe(
 			response =>{

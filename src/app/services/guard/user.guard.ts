@@ -10,15 +10,17 @@ export class UserGuard implements CanActivate {
         private _userService: UserService
     ){}
 
+
     canActivate(){
         let identity = this._userService.getIdendity();
-        if(identity && (identity.role == 'ROLE_USER' || identity.role == 'ROLE_ADMIN')){
+
+        if(identity && (identity.role == 'ROLE_USER' || identity.role == 'ROLE_PREMIUM')){
             return true;
         }else{
             this._router.navigate(['/login']);
             return false;
         }
-    }
+    } 
 
     
 

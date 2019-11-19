@@ -1,0 +1,48 @@
+<div class="alert alert-success" *ngIf="status==1">
+        Te enviaremos un correo con la clave generada después de validar la información <a [routerLink]="['/login']"> </a>
+    </div>
+    <div class="alert alert-danger" *ngIf="status==2 || status==4 || status==5 || status==7 || status==8 || status==9">
+       Ocurrio un error !! Refresca la Página e intentalo de nuevo
+    </div>
+<ul class="list-group">
+    <li class="list-group-item">Transferir el valor de <b> $10</b> a la cuenta <b> 1040599671</b> del <b>  Banco del Pacifico</b> a nombre  <b> Jerson Carranza</b> </li>
+    <li class="list-group-item">Enviar en el formulario de abajo el Correo electrónico y una captura de la transferencia  <br/>
+        <b>Nota:</b> Se esta trabajando para que el pago sea por paypal
+    </li>
+</ul>
+
+
+        <!-- <div id="new-publication" class="col-12">
+            <div class="alert alert-success" *ngIf="status == 'success'">
+                Publicacion correctamente
+            </div>
+            <div class="alert alert-error" *ngIf="status == 'error'"> Error </div>
+        </div>
+    </div> -->
+    <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group form-row">
+            <input type="text" name="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required/>
+            <label alt="Label" data-placeholder="Correo"></label>
+            <span *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <span *ngIf="f.email.errors.required">Email es obligatorio</span>
+                <span *ngIf="f.email.errors.email">Ingrese un mail correcto</span>
+            </span>
+        </div>
+        <div class="form-group form-row">
+            <textarea name="textarea" formControlName="textarea" class="form-control" 
+            [ngClass]="{ 'is-invalid': submitted && f.textarea.errors }"></textarea>
+            <label alt="Label" data-placeholder="Mensaje"></label>
+            <span *ngIf="submitted && f.textarea.errors" class="invalid-feedback">
+                <span *ngIf="f.textarea.errors.required">textarea es obligatorio</span>
+            </span>
+        </div>
+
+        <input #myInput type="file" id="file" (change)="fileChangeEvent($event)"  accept="image/*" />
+                <label for="file"  class="btn-outline-primary">
+                   Elegir el comprobante <i class="fa fa-file-photo-o" aria-hidden="true"></i>
+                </label>  
+
+        <div class="text-center">
+            <input type="submit" value="Enviar" class="btn btn-outline-success">
+        </div>
+    </form>

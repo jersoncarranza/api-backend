@@ -1,69 +1,102 @@
-<div class="jumbotron">
+<div id="uno"> <img class="icon"  src="assets/silueta.png"> </div>    
     <div class="container"> 
         <div class="row">
             <div class="col-md-8 offset-md-2">
 
-                <div class="alert alert-success" *ngIf="status=='success'">
-                    Registro completado correctamente, <a [routerLink]="['/login']">Identificate aqui</a>
+                <div class="alert alert-success" *ngIf="status==1">
+                    {{message}} <a [routerLink]="['/login']">Identificate aqui</a>
                 </div>
-                <div class="alert alert-danger" *ngIf="status=='error'">
-                    Registro no ha podido completarse, quizas tu email o nickname esta en uso <a [routerLink]="['/login']">Identificate aqui</a>
+                <div class="alert alert-danger" *ngIf="status==2 || status==4 || status==5 || status==7 || status==8 || status==9">
+                   {{message}}
                 </div>
-                <form name="form" #F="ngForm" (ngSubmit)="F.form.valid && onSubmit(user)" >
-                    <div class="form-group">
-                        <label>name</label>
-                        <input name="name"  type="text" class="form-control" placeholder="name" #name="ngModel"
-                         [(ngModel)]="user.name"  required/>
-                        <span *ngIf="name.invalid && name.touched">
-                            <div>name incorret</div>
-                        </span> 
+                <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group form-row">
+                            <input type="text" name="name" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors}" required>
+                            <label alt="Label" data-placeholder="Nombre"></label>
+                            <div *ngIf="(submitted && f.name.errors)" class="invalid-feedback">
+                                <span *ngIf="f.name.errors.required">El nombre es requerido</span>
+                            </div> 
+                        </div>
+                        <br/>
+                    <div class="form-group form-row">
+                        <input type="text" name="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required/>
+                        <label alt="Label" data-placeholder="Correo"></label>
+                        <span *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <span *ngIf="f.email.errors.required">Email es obligatorio</span>
+                            <span *ngIf="f.email.errors.email">Ingrese un mail correcto</span>
+                        </span>
                     </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input name="email"  type="email" class="form-control" placeholder="Email" #email="ngModel"
-                         [(ngModel)]="user.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required/>
-                        <span *ngIf="email.invalid && email.touched">
-                            <div>Email incorrecto</div>
-                        </span> 
-                    </div>
-                     <div class="form-group">
-                        <label>Apellidos</label>
-                        <input name="lastname"  type="text" class="form-control" placeholder="Apellidos" #lastname="ngModel"
-                         [(ngModel)]="user.lastname" required/>
-                        <span *ngIf="lastname.invalid && lastname.touched">
-                            <div >lastname is required</div>
-                        </span> 
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Apodo</label>
-                        <input name="nickname"  type="text" class="form-control" placeholder="nickname" #nickname="ngModel" 
-                        [(ngModel)]="user.nickname" required/>
-                        <span *ngIf="nickname.invalid && nickname.touched">
-                            <div>nickname is required</div>
-                        </span> 
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="register-password">Password</label>
-                        <input name="password" id="register-password" type="password" class="form-control" placeholder="Password" #password="ngModel"  
-                        [(ngModel)]="user.password" required>
-                        <span *ngIf="password.invalid && password.touched">
-                            <div>password is required</div>
-                        </span> 
+                    <br/>
+                    <div class="form-group  form-row">
+                            <input  type="password" formControlName="password"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required>
+                            <label alt="Label" data-placeholder="Contraseña"></label>
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Ingrese contraseña</div>
+                                    <div *ngIf="f.password.errors.minlength">La clave debe tener 6 caracteres</div>
+                            </div>
+                        </div>
+                    <br/>
+                    <div class="form-group form-row">
+                        <input formControlName="confirmPassword" type="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" required>
+                        <label alt="Label" data-placeholder="Repetir Contraseña"></label>
+                        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                            <div *ngIf="f.confirmPassword.errors.required">Confirme la contraseña</div>
+                            <div *ngIf="f.confirmPassword.errors.mustMatch">No coinciden la clave</div>
+                        </div>
                     </div>
                     
-                        <div class="form-group">
-                        <label for="confirm-password">Password</label>
-                        <input name="confirmpassword" id="confirm-password" type="password" class="form-control" placeholder="Repit Password" #confirmpassword="ngModel"  [(ngModel)]="user.confirmpassword" required>
-                        <span *ngIf="confirmpassword.invalid && confirmpassword.touched">
-                            <div>confirm password is required</div>
-                        </span> 
-                    </div> 
-                    <input type="submit" value="Register" class="btn btn-success" [disabled]="!F.form.valid">
+                    <div class="form-group">
+                        <div class="cntr text-center">
+                            <label for="rdo-1" class="btn-radio">
+                                <input type="radio" id="rdo-1" name="rdoGenero" formControlName="rdoGenero" value=H (click)="setGenero('H')">
+                                <svg width="20px" height="20px" viewBox="0 0 20 20">
+                                    <circle cx="10" cy="10" r="9"></circle>
+                                    <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+                                    <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+                                </svg>
+                                <span>Hombre</span>
+                            </label>
+                    
+                            <label for="rdo-2" class="btn-radio">
+                                <input type="radio" id="rdo-2" name="rdoGenero" formControlName="rdoGenero" value=M (click)="setGenero('M')">
+                                <svg width="20px" height="20px" viewBox="0 0 20 20">
+                                    <circle cx="10" cy="10" r="9"></circle>
+                                    <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+                                    <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+                                </svg>
+                                <span>Mujer</span>
+                            </label>
+                        </div>
+                        <div class="invalid-error">
+                            <div *ngIf="genero == 'X' && submitted" >Seleccione un género</div>        
+                        </div>
+                    </div>
+                 
+                    <div id="divCodigo" class="form-group form-row">
+                        <input  id="codigo" formControlName="codigo" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.codigo.errors }" >
+                            <label alt="Label" data-placeholder="Código"></label>
+                            <div *ngIf="submitted && f.codigo.errors" class="invalid-feedback">
+                                <div *ngIf="f.codigo.errors.required">Ingrese código </div>
+                            </div>
+                        </div>
+                                <div id="linkCodigo" #linkCodigo class=" float-right">
+                                    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                                    <label > Obtener código <a [routerLink]="['/codigo']">aqui</a> </label>
+                                </div>
+                    <div class="text-center">
+                        <br/>
+                        <input type="submit" value="Registrarse" class="btn btn-outline-success">
+                    </div>
                   </form>
                   
             </div>
         </div>
+        <div class="row">
+                <div class="col-md-8 offset-md-2 text-center block-espacio">
+                    <span>
+    
+                        <input type="submit" value="Iniciar sesión" class="btn btn-outline-dark" [routerLink]="['/login']"/>
+                    </span>    
+                </div>
+        </div>
     </div>
-</div>

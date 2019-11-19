@@ -1,0 +1,188 @@
+
+.invalid-error{
+  font-size: 80%;
+  color:#dc3545;
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid {
+  background-image: none;
+}
+form {
+	/* Temp */
+	padding: 1rem;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	/* End Temp */
+  }
+  form .form-row {
+	margin-bottom: 1rem;
+	position: relative;
+  }
+  form .form-row:last-child {
+	margin-bottom: 0;
+  }
+  form .form-row input[type="password"] {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	transition: all 0.5s ease-in-out;
+	outline: 0;
+  }
+  form .form-row input[type="password"] + label[data-placeholder] {
+	pointer-events: none;
+  }
+  form .form-row input[type="password"] + label[data-placeholder]:after {
+	content: attr(data-placeholder);
+	display: block;
+	position: absolute;
+	top:35%;
+	left: 0.5rem;
+	-webkit-transform: translate(0%, -50%);
+			transform: translate(0%, -50%);
+	transition: all 0.5s ease-in-out;
+	padding: 0 0.25rem;
+	background-color: rgba(255, 255, 255, 0);
+  }
+  form .form-row input[type="password"]:focus, form .form-row input[type="password"]:valid {
+	border: 1px solid green;
+  }
+  form .form-row input[type="password"]:focus + label[data-placeholder]:after, form .form-row input[type="password"]:valid + label[data-placeholder]:after {
+	-webkit-transform: translate(-5%, -150%) scale(0.9, 0.9);
+			transform: translate(-5%, -150%) scale(0.9, 0.9);
+	color: green;
+	background-color: white;
+  }
+  
+/***/
+form .form-row input[type="text"] {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	transition: all 0.5s ease-in-out;
+	outline: 0;
+  }
+  form .form-row input[type="text"] + label[data-placeholder] {
+	pointer-events: none;
+  }
+  form .form-row input[type="text"] + label[data-placeholder]:after {
+	content: attr(data-placeholder);
+	display: block;
+	position: absolute;
+	top:35%;
+	left: 0.5rem;
+	-webkit-transform: translate(0%, -50%);
+			transform: translate(0%, -50%);
+	transition: all 0.5s ease-in-out;
+	padding: 0 0.25rem;
+	background-color: rgba(255, 255, 255, 0);
+  }
+  form .form-row input[type="text"]:focus, form .form-row input[type="text"]:valid {
+	border: 1px solid green;
+  }
+  form .form-row input[type="text"]:focus + label[data-placeholder]:after, form .form-row input[type="text"]:valid + label[data-placeholder]:after {
+	-webkit-transform: translate(-5%, -150%) scale(0.9, 0.9);
+			transform: translate(-5%, -150%) scale(0.9, 0.9);
+	color: green;
+	background-color: white;
+  }
+
+
+/****/
+  
+
+
+  
+.cntr {
+  margin: auto;
+}
+
+.btn-radio {
+  cursor: pointer;
+  display: inline-block;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+.btn-radio:not(:first-child) {
+  margin-left: 20px;
+}
+
+
+@media screen and (max-width: 480px) {
+  .btn-radio {
+    display: block;
+    float: none;
+  }
+  .btn-radio:not(:first-child) {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+}
+.btn-radio svg {
+  fill: none;
+  vertical-align: middle;
+}
+.btn-radio svg circle {
+  stroke-width: 2;
+  stroke: #C8CCD4;
+}
+.btn-radio svg path {
+  stroke: #008FFF;
+}
+.btn-radio svg path.inner {
+  stroke-width: 6;
+  stroke-dasharray: 19;
+  stroke-dashoffset: 19;
+}
+.btn-radio svg path.outer {
+  stroke-width: 2;
+  stroke-dasharray: 57;
+  stroke-dashoffset: 57;
+}
+.btn-radio input {
+  display: none;
+}
+.btn-radio input:checked + svg path {
+  transition: all 0.4s ease;
+}
+.btn-radio input:checked + svg path.inner {
+  stroke-dashoffset: 38;
+  transition-delay: 0.3s;
+}
+.btn-radio input:checked + svg path.outer {
+  stroke-dashoffset: 0;
+}
+.btn-radio span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+
+img.icon:hover {
+  -webkit-box-shadow: 0px 0px 0px 10px rgba(7, 238, 0, 0.4);
+  -webkit-transition:box-shadow .4s;
+}
+
+
+img.icon{
+  display: block;
+  
+  background-color: rgba(255,255,255,.6);
+  width:40px;
+  -webkit-box-shadow:0px 0px 0px 0px rgba(255,255,255,.1);
+  -webkit-border-radius: 50%;
+  -webkit-transition:box-shadow .4s;
+ 
+}
+.block-espacio{
+  margin-top: 5em;
+}
+
+
+

@@ -22,22 +22,15 @@
         <div class="row">
             <div class="col-10 col-md-10">
                 <!-- <input type="file" placeholder="Subir imagen"> -->
-                
                 <input type="file" id="file" (change)="fileChangeEvent($event)" />
                 <label for="file"  class="btn-outline-primary">
                     <i class="fa fa-id-badge" aria-hidden="true"></i>
-                </label>
-                
-                
-                
-                
+                </label>  
             </div>
             <div class="col-2 col-md-2">
-                
                 <input type="submit" value="Enviar" class="btn btn-primary btn-sm" [disabled]="!newPubForm.form.valid"/>
             </div>
         </div>
-        
     </form>
 </div>  
     

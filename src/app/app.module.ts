@@ -22,6 +22,9 @@ import {UserService} from './services/user.service';
 import {UserGuard} from './services/guard/user.guard';
 
 import {MessagesModule} from './messages/components/messages.module';
+import {  ReactiveFormsModule } from '@angular/forms';
+import { CodigoComponent } from './components/codigo/codigo.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +39,7 @@ import {MessagesModule} from './messages/components/messages.module';
     PublicationsComponent,
     FollowingComponent,
     FollowedComponent,
+    CodigoComponent,
     // AddComponent,
     // MainComponent,
     // ReceivedComponent,
@@ -47,7 +51,8 @@ import {MessagesModule} from './messages/components/messages.module';
     HttpClientModule,
     routing,
     MomentModule,
-    MessagesModule
+    MessagesModule,
+    ReactiveFormsModule
   ],
   providers: [
     appRoutingProviders,

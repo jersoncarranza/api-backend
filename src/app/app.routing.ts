@@ -11,10 +11,12 @@ import { TimelineComponent } from './components/timeline/timeline.component';
 import {ProfileComponent} from './components/profile/profile.component';
 import { FollowingComponent } from './components/following/following.component';
 import {FollowedComponent} from './components/followed/followed.component';
+import {CodigoComponent} from './components/codigo/codigo.component';
 
 import {UserGuard} from './services/guard/user.guard';
 const appRoutes: Routes = [
     {path:'', component: HomeComponent, canActivate:[UserGuard]},
+    
     {path:'home', component: HomeComponent, canActivate:[UserGuard]},
     {path: 'mis-datos', component: UserEditComponent, canActivate:[UserGuard]},
     {path: 'gente', component: UsersComponent,canActivate:[UserGuard]},
@@ -27,6 +29,7 @@ const appRoutes: Routes = [
     {path:'login', component: LoginComponent},
     //{path:'login', component: HomeComponent, canActivate:[UserGuard]},
     {path: 'registro', component: RegisterComponent} ,
+    {path:'codigo', component: CodigoComponent}
 ];
 
 export const appRoutingProviders: any[] = [];

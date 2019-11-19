@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {GLOBAL} from './global';
 import {User} from '../models/user';
 import {FollowService} from '../services/follow.service';
-
+ 
 @Injectable()
 export class UserService{
     public url: string;
