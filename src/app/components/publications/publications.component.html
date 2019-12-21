@@ -1,8 +1,4 @@
-   <!-- <div class="row">
-       <div class="col-9">
-           <h3>Publicaciones</h3>
-       </div>
-   </div> -->
+
 
     <div id="publications"  class="border-publication" *ngFor="let publication of publications">
         <div class="row ">
@@ -39,17 +35,13 @@
     <div class="row" *ngIf="publications && publications.length ">
         <div class="col-11">
             <div class="text-center margin-botton-btn">
-
                 <button class="btn btn-primary" (click)="viewMore()" *ngIf="!noMore">
                     Ver más publicaciones
                 </button>
             </div>
         </div>
     </div>
-
     
-        
-    
-
+ 
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     

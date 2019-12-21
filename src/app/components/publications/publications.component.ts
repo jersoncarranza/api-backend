@@ -57,7 +57,7 @@ export class PublicationsComponent implements OnInit {
 					
 					if(!adding){
 						this.publications = response.publications;
-					}else{
+					}else{ 
 						var arrayA = this.publications;
 						var arrayB = response.publications;
 						this.publications = arrayA.concat(arrayB);

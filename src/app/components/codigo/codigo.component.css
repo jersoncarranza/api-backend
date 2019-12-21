@@ -214,9 +214,24 @@
     border-radius: 50%;
     transition:box-shadow .4s;
    
-  }
+  } 
   .block-espacio{
     margin-top: 5em;
+  }
+
+
+  img.icon:hover {
+    box-shadow: 0px 0px 0px 10px rgba(7, 238, 0, 0.4);
+    transition:box-shadow .4s;
+  }
+  
+  img.icon{
+    display: block;
+    background-color: rgba(255,255,255,.6);
+    width:40px;
+    box-shadow:0px 0px 0px 0px rgba(255,255,255,.1);
+    border-radius: 50%;
+    transition:box-shadow .4s;
   }
   
   

@@ -1,0 +1,21 @@
+<div  class="row" *ngIf='matchCandidato'>
+    <div class="offset-5">     
+        <a class="text-center" href="">{{name}}</a>
+    </div>
+</div>
+<div class="row" *ngIf='matchCandidato'>
+    <div class="offset-3 col-2 ">
+        <button class="btn btn-outline-primary-notlike" (click)="clickNotLike()" >
+            <i class='fas fa-heart-broken' style='font-size:40px;'></i>
+        </button>
+    </div>
+    <div class="col-2 image-user">
+        <img src="{{url + 'get-image-user/'+image}}" *ngIf="image" alt="">
+        <img src="{{imageFrontCandidato}}" *ngIf="!image" alt="twenty">    
+    </div>
+    <div class="col-2">
+        <button class="btn btn-outline-primary-like" (click)="clickLike()" >
+            <i class='fas fa-fire-alt' style='font-size:40px;'></i>
+        </button>
+    </div>
+</div>

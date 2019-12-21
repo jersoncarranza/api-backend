@@ -1,0 +1,36 @@
+
+.image-user{
+    width: 20px;
+    height: 20px; 
+}
+
+.image-user img{
+    border-radius: 60px;
+    width: 60px;
+    text-align: center;
+}
+.btn-outline-primary-like {
+    color: #fd910c !important;
+    border-color: white !important;
+}
+
+.btn-outline-primary-like:hover {
+    color: white !important;
+    border-color: white !important;
+    background-color: #ff7431;
+    
+}
+
+.btn-outline-primary-notlike {
+    color: #b94242 !important;
+    border-color: white !important;
+}
+
+.btn-outline-primary-notlike:hover {
+    color: white !important;
+    border-color: white !important;
+    background-color: #b94242;
+    
+}
+
+

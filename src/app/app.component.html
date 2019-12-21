@@ -22,6 +22,14 @@
 								<span class="far fa-envelope"></span>	
 								<span class="lbl-menu font-weight-bold"> Mensajes</span>	
 							</a>
+
+							<a class="nav-link color-menu" *ngIf="identity.role == 'ADMIN'" [routerLink]="['/admin']" [routerLinkActive]="['active-link']">
+								<!-- <img class= "avatar" src="{{url + 'get-image-user/' + identity.image}}"  *ngIf="identity.image">	class="list-group-item list-group-item-action"		 -->
+								<span class='far fa-calendar'></span>
+								<span class="lbl-menu font-weight-bold"> Panel</span>	
+							</a>
+
+							
 						</li>
 					</ul>
 				</div>

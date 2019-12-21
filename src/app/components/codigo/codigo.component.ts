@@ -1,11 +1,12 @@
 import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Codigo} from '../../models/codigo';
 import {CodigoService} from '../../services/codigo/codigo.service'
 import {UploadService} from '../../services/upload.service';
+import{MailService} from '../../services/mail/mail.service';
 import { GLOBAL } from 'src/app/services/global';
-
-
+import {Codigo} from '../../models/codigo';
+import {Mail} from '../../models/mail';
+import * as alertify from 'alertifyjs';
 @Component({
 	selector: 'app-codigo',
 	templateUrl: './codigo.component.html',
@@ -18,15 +19,20 @@ export class CodigoComponent implements OnInit {
     submitted = false;
 	registerForm: FormGroup;
 	public codigo: Codigo;
+	public mail: Mail;
 	public status: String;
+	public statusmsg:String;
 	public message:String;
 	public url;
     constructor(
 		private _uploadService: UploadService,
 		private _codigoService: CodigoService,
+		private _mailService : MailService,
 		private formBuilder: FormBuilder) { 
 		this.codigo = new Codigo("","",2, "", "", "",  "","");
+		this.mail   = new Mail("","","","","");
 		this.url  = GLOBAL.url; 
+		this.statusmsg='0';
     }
 
     ngOnInit() {
@@ -43,26 +49,30 @@ export class CodigoComponent implements OnInit {
 	
 	onSubmit(){
 		this.submitted = true;
-		if(this.registerForm.valid && this.filesToUpload && this.filesToUpload.length){
-			this.codigo.descripcion     = this.registerForm.value.textarea;
+		if(this.registerForm.valid &&   this.filesToUpload && this.filesToUpload.length){
+			this.codigo.descripcion    = this.registerForm.value.textarea;
 			this.codigo.correoPeticion = this.registerForm.value.email;
-			
-			
 			
 			this._codigoService.saveCodigo(this.codigo).subscribe(
 				response => {
 					if (response.message) {
+						this.codigo.code = response.message.code;
 						if (this.filesToUpload && this.filesToUpload.length) {
 							this._uploadService.makeFileRequestPay(this.url+'upload-image-pay/'+response.message._id,[], this.filesToUpload,'image')
 							.then((result: any)=>{
 								this.codigo.file  = result.image;
+
 								this.status = result.status;
 								this.mensaje(this.status);
+	
+								this.mail.from = "jersoncarranza2@gmail.com";
+								this.mail.text =  this.msgSend(this.codigo.code); 
+								this.mail.to = this.codigo.correoPeticion.trim();
+								this.mail.subject = "Codigo de Registro a Validar "
+								this.enviarMail(this.status);
+
 								this.registerForm.reset();
 								this.myInputVariable.nativeElement.value = '';
-								//newPubForm.reset();
-								//this._router.navigate(['/timeline']);
-								//this.sended.emit(this.send='true');
 							});
 						}else{
 							this.mensaje(this.status);
@@ -76,17 +86,30 @@ export class CodigoComponent implements OnInit {
 						this.mensaje(this.status);
 					}
 				}
-			)
-			
-			
-			
+			)			
 		}else{
-			console.log('Ingrse todos')	
-			
+			alert('Ingrese todos los campos');
 		}
 	}
-
 	
+	enviarMail(status: String) {
+	
+		if (status == '1') {
+			this._mailService.envioGmail(this.mail).subscribe(
+				response =>{
+					this.statusmsg = response.status;
+				}
+			)
+		}
+	};
+
+
+	msgSend(code: String){
+		let msj: String;
+		msj='Hola, Amigo !<br/> Gracias Por unirte, en breves momentos se activara tu codigo <b>'+ code  + '</b> para que te registre. Te enviaremos otro mail tras VALIDAR la informacion. <br/> Nota: Se han omitido las tildes.';
+		return msj;
+	}
+
 	public filesToUpload: Array<File>;
 	fileChangeEvent(fileInput: any){
 		this.filesToUpload = <Array<File>>fileInput.target.files;

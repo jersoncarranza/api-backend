@@ -1,5 +1,5 @@
 import { Component, OnInit, Output , Input, EventEmitter} from '@angular/core';
-import {UserService} from '../../services/user.service';
+import {UserService} from '../../services/user.service'; 
 import { GLOBAL } from 'src/app/services/global';
 import {Publication} from '../../models/publication';
 import {TimelineService} from '../../services/timeline.service'; //PublicationService

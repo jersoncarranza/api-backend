@@ -1,14 +1,19 @@
 <div id="uno"> <img class="icon"  src="assets/silueta.png"> </div>    
+<div class="alert alert-success" *ngIf="status==1">
+        {{message}}
+    </div>
+    <div class="alert alert-danger" *ngIf="status==0 || status==2">
+       {{message}}
+    </div>
 <div class="container">
     <div class="row">
         <div class="col-md-8 offset-md-2 block-espacio">
-            <div class="alert alert-success" *ngIf="status =='success'">
-                Te has identificado correctamente, Bienvenido
-            </div>
-            <div class="alert alert-danger" *ngIf="status =='error'">
-                No te has podido identificar 
-            </div>
             
+            
+            
+
+
+
             <div class="text-center">
                 <form name="form"  #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && onSubmit(user)" >
                

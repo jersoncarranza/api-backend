@@ -13,7 +13,7 @@ export class UploadService {
    }
 
    makeFileRequest(url: string, params: Array<string>, files: Array<File>, token: string, name: string){
-		return new Promise(function(resolve, reject){
+	return new Promise(function(resolve, reject){
 			var formData: any = new FormData();
 			var xhr = new XMLHttpRequest();
 			for(var i=0; i< files.length; i++){
@@ -44,7 +44,6 @@ export class UploadService {
 		for(var i=0; i< files.length; i++){
 			formData.append(name, files[i], files[i].name)
 		}
-
 		xhr.onreadystatechange = function(){
 			if(xhr.readyState == 4){
 				if(xhr.status == 200){
@@ -54,11 +53,9 @@ export class UploadService {
 				}
 			}
 		}
-
 		xhr.open('POST', url, true);
 		xhr.setRequestHeader('Authorization','');
 		xhr.send(formData);
-
 	})
 }
 

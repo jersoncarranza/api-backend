@@ -1,0 +1,21 @@
+<div class="container">
+
+        <div class="row">
+            <div class="col-12 text-center"> 
+                <h6><span class="badge badge-secondary">{{data.candidato.name}}</span>también te ha dado me gusta  <i class='fas fa-fire-alt' style='font-size:10px;color: red;'></i><span>    </span></h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <textarea #emailmensaje placeholder="Escríbele  algo interesante!" name="emailmensaje" id="emailmensaje" cols="33" rows="2"></textarea>
+            </div>
+            <div class="col-12 text-center">
+                <span (click)="envioMensaje()" class="btn btn-outline-primary">
+                    Enviar
+                    <i class="far fa-envelope"></i>
+                </span>
+            </div>
+             
+        </div>
+    </div>
+

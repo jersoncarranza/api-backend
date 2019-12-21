@@ -1,0 +1,105 @@
+ <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-3">
+                <div class="form-group form-row">
+                <input    id="code" value="{{data.user.code}}"  type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.code.errors }" >     
+                <label alt="Label" data-placeholder="Código "></label>
+                <div *ngIf="(submitted && f.code.errors)" class="invalid-feedback">
+                    <span *ngIf="f.code.errors.required">El código es requerido</span>
+                </div> 
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group form-row">
+
+                    <input    id="date" value="{{(data.user.date | amFromUnix) | amLocale: 'es'| amTimeAgo  }}"  type="text" 
+                    class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" >     
+                    <label alt="Label" data-placeholder="Fecha"></label>
+                    <div *ngIf="(submitted && f.date.errors)" class="invalid-feedback">
+                        <span *ngIf="f.date.errors.required">Fecha requrido</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group form-row">
+                    <input    id="correo_peticion" value="{{data.user.correo_peticion}}"  type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.correo_peticion.errors }" >     
+                    <label alt="Label" data-placeholder="correo electronico "></label>
+                    <div *ngIf="(submitted && f.correo_peticion.errors)" class="invalid-feedback">
+                        <span *ngIf="f.correo_peticion.errors.required">El correo electrónico es requerido</span>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group form-row">
+                    <textarea    id="descripcion" value="{{data.user.descripcion}}"  type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.descripcion.errors }" ></textarea>
+                    <label alt="Label" data-placeholder="Descripcion "></label>
+                    <div *ngIf="(submitted && f.descripcion.errors)" class="invalid-feedback">
+                        <span *ngIf="f.descripcion.errors.required">Descripcion</span>
+                    </div> 
+                </div>
+            </div>
+            <b> Nota:</b>  {{nota}}
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <div id="container-switch"  (click)="toggle()">
+                    <div class="inner-container">
+                        <div class="toggle">
+                            <p>Activado</p>
+                        </div>
+                        <div class="toggle">
+                            <p>Desactivado</p>
+                        </div>
+                    </div>
+                    <div class="inner-container" id='toggle-container'>
+                        <div class="toggle">
+                            <p>Activado</p>
+                        </div>
+                        <div class="toggle">
+                            <p>Desactivado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <span (click)="muestra_oculta('imagen')">
+                    <i class="fas fa-images"></i>
+                    
+                </span>
+
+                <!-- <button  class="btn btn-outline-success" (click)="muestra_oculta('imagen')" ><i class="	fa fa-file-o"></i> Imagen</button> -->
+                    <!-- <div  class="float-lg-right">
+                </div> -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12" id="imagen">
+                <img src="{{url + 'get-image-pago/'+ user.file}}" *ngIf="data.user.file" alt="pago">
+            </div>
+        </div>
+                    
+        <div class="row">
+            <div class="col-12">
+                {{message}}
+            </div>
+        </div>
+        
+        <br>
+        <div class="row">
+            <div class="col-8">
+                <textarea #emailmensaje name="emailmensaje" id="emailmensaje" cols="40" rows="2"></textarea>
+            </div>
+            <div class="col-1">
+                <span (click)="envioMail()" class="btn btn-outline-primary">
+
+                    <i class="far fa-envelope"></i>
+                </span>
+            </div>
+             
+        </div>
+    </div>

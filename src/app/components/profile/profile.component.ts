@@ -11,7 +11,7 @@ import {GLOBAL} from '../../services/global';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
   providers:[UserService, FollowService]
-})
+}) 
 export class ProfileComponent implements OnInit {
 
 	public title: string;

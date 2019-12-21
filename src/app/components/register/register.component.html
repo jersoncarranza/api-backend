@@ -19,7 +19,7 @@
                         </div>
                         <br/>
                     <div class="form-group form-row">
-                        <input type="text" name="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required/>
+                        <input type="text" name="email" formControlName="email"(change)="valuechangeEmail($event.target.value)"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required/>
                         <label alt="Label" data-placeholder="Correo"></label>
                         <span *ngIf="submitted && f.email.errors" class="invalid-feedback">
                             <span *ngIf="f.email.errors.required">Email es obligatorio</span>

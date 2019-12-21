@@ -1,0 +1,358 @@
+*
+  margin: 0
+  padding: 0
+
+html, body
+  height: 100%
+  width: 100%
+
+body
+  background: #FFF
+
+::before, ::after
+  content: ''
+
+.boxes-container
+  // margin: auto
+
+.box
+  border: 1px solid #CCC
+  height: 360px
+  width: 360px
+  position: relative
+  float: left
+  overflow: hidden
+  &.wide
+    width: 720px
+
+.center
+  position: absolute
+  top: calc(50% - 100px)
+  left: calc(50% - 100px)
+  &:hover
+    animation-play-state: paused
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Square to Circle
+#anim-extra-one
+  height: 200px
+  width: 200px
+  @extend .center
+  animation: square-to-circle 2s 1s infinite cubic-bezier(1.000, 0.005, 0.215, 1.200) alternate
+
+@keyframes square-to-circle
+  0%
+    border-radius: 0 0 0 0
+    background: coral
+    transform: rotate(0deg)
+  25%
+    border-radius: 50% 0 0 0
+    background: darksalmon
+    transform: rotate(45deg)
+  50%
+    border-radius: 50% 50% 0 0
+    background: indianred
+    transform: rotate(90deg)
+  75%
+    border-radius: 50% 50% 50% 0
+    background: lightcoral
+    transform: rotate(135deg)
+  100%
+    border-radius: 50%
+    background: darksalmon
+    transform: rotate(180deg)
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Bounce Text
+#anim-one
+  text-align: center
+  padding-top: 100px
+  font-size: 0
+  font-weight: 700
+  color: #00CED2
+  animation: bounce-text 2s infinite cubic-bezier(0.245, 0.325, 0.670, 1.510)
+
+@keyframes bounce-text
+  60%
+    font-size: 60px
+  100%
+    font-size: 60px
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Little Circles Bounce
+#anim-two
+  text-align: center
+  // padding-top: 150px
+  ul
+    text-align: center
+    list-style: none
+    li
+      width: 30px
+      height: 30px
+      border-radius: 50%
+      background-color: red
+      display: inline-block
+      margin: 0 5px
+      transform: translateY(-30px)
+      animation: bounce-balls 1.2s cubic-bezier(0.245, 0.325, 0.510, 1.305) infinite alternate
+      &:nth-child(1)
+        background: orange
+        animation-delay: .6s
+      &:nth-child(2)
+        background: coral
+        animation-delay: .7s
+      &:nth-child(3)
+        background: darksalmon
+        animation-delay: .8s
+      &:nth-child(4)
+        background: indianred
+        animation-delay: .6s
+      &:nth-child(5)
+        background: lightcoral
+        animation-delay: .6s
+      &:nth-child(6)
+        background: lightcoral
+        animation-delay: .7s
+
+@keyframes bounce-balls
+  30%
+    transform: translateY(-30px)
+  60%
+    transform: translateY(205px)
+  80%
+    transform: translateY(190px)
+  100%
+    transform: translateY(195px)
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Sun Cloud Rain
+$sun-color: #F6CB00
+$cloud-color: #DCDCDC
+$droplet-color: #00CED2
+#anim-three
+  .sun
+    background-color: $sun-color
+    width: 100px
+    height: 100px
+    border-radius: 50%
+    margin-top: 60px
+    margin-left: 100px
+    animation: sun-appear .4s 2s cubic-bezier(0.375, 0.150, 0.690, 1.650)
+    animation-fill-mode: forwards
+    opacity: 0
+  .cloud
+    color: $cloud-color
+    font-size: 120px
+    position: absolute
+    top: 60px
+    left: 120px
+    -webkit-text-stroke: 4px white
+    animation: cloud-appear .4s 2.5s cubic-bezier(0.375, 0.150, 0.690, 1.650)
+    animation-fill-mode: forwards
+    opacity: 0
+  ul.rain
+    text-align: center
+    list-style: none
+    li
+      background-color: $droplet-color
+      height: 44px
+      width: 12px
+      border-radius: 10px
+      position: absolute
+      top: 200px
+      left: 140px
+      animation: rain-appear .4s cubic-bezier(0.375, 0.150, 0.690, 1.650)
+      animation-fill-mode: forwards
+      opacity: 0
+      &:nth-child(1)
+        transform: translateX(0px) rotate(30deg) scale(.8)
+        animation-delay: 3s
+      &:nth-child(2)
+        transform: translateX(25px) rotate(30deg) scale(.8)
+        animation-delay: 3.5s
+      &:nth-child(3)
+        transform: translateX(50px) rotate(30deg) scale(.8)
+        animation-delay: 4s
+
+@keyframes sun-appear
+  from
+    opacity: 0
+    transform: scale(.8)
+  to
+    opacity: 1
+    transform: scale(1)
+
+@keyframes cloud-appear
+  from
+    opacity: 0
+    transform: scale(.8)
+  to
+    opacity: 1
+    transform: scale(1)
+
+@keyframes rain-appear
+  from
+    opacity: 0
+    // transform: scale(.8)
+  to
+    opacity: 1
+    // transform: scale(1)
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Heart Beat
+#anim-four
+  text-align: center
+  animation: heartbeat .5s cubic-bezier(0.245, 0.325, 0.510, 1.305) infinite alternate
+  font-size: 160px
+  margin-top: 60px
+  color: darken(#FB7E6E, 30%)
+
+@keyframes heartbeat
+  to
+    transform: scale(1.2)
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Sunset Mountains
+$sun-color: #F6CB00
+$mountain-color: #4381B6
+$cloud-color: #DCDCDC
+#anim-five
+  overflow: hidden
+  .mountain
+    background-color: $mountain-color
+    transform: rotate(45deg)
+    position: absolute
+    &.one
+      height: 260px
+      width: 260px
+      bottom: -130px
+      left: 80px
+    &.two
+      height: 260px
+      width: 260px
+      bottom: -130px
+      right: 80px
+    &.three
+      height: 180px
+      width: 180px
+      bottom: -80px
+      left: 280px
+  .sun
+    background-color: $sun-color
+    width: 100px
+    height: 100px
+    border-radius: 50%
+    position: absolute
+    left: 380px
+    animation: sun-move 6s linear infinite alternate
+    // animation: sun-move 6s linear infinite alternate, sun-color 6s linear infinite alternate
+    // animation: heartbeat .5s cubic-bezier(0.245, 0.325, 0.510, 1.305) infinite alternate
+
+  ul.cloud
+    text-align: center
+    list-style: none
+    li
+      color: $cloud-color
+      font-size: 120px
+      position: absolute
+      top: 50px
+      &:nth-child(1)
+        top: 80px
+        animation: cloud-move 7s linear infinite normal
+      &:nth-child(2)
+        // animation-direction: normal
+        animation: cloud-move 6s linear infinite normal
+
+@keyframes sun-move
+  0%
+    top: -105px
+    background-color: $sun-color
+  65%
+    top: 160px
+    background-color: $sun-color
+    display: initial
+  80%
+    top: 180px
+    background-color: #FB5E00
+    display: none
+  90%
+    top: 180px
+    background-color: #FFF
+    display: none
+  100%
+    top: 180px
+    background-color: #FFF
+    display: none
+
+@keyframes sun-color
+  0%
+    background-color: $sun-color
+  75%
+    background-color: $sun-color
+  100%
+    background-color: #FB5E00
+
+@keyframes cloud-move
+  0%
+    transform: translateX(-150px)
+  100%
+    transform: translateX(750px)
+
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Stopwatch
+$blue-color: #00CED2
+#anim-six
+  .stopwatch
+    margin: auto
+    border: 24px solid $blue-color
+    border-radius: 50%
+    width: 240px
+    height: 240px
+    margin-top: 60px
+    box-sizing: border-box // codepen fix
+    &:after
+      background: $blue-color
+      border-radius: 50%
+      width: 20px
+      height: 20px
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%,-50%)
+    &:hover .rotate
+      animation-play-state: paused
+    .head
+      margin: auto
+      border: 14px solid $blue-color
+      border-radius: 50%
+      width: 48px
+      height: 48px
+      margin-top: -58px
+      box-sizing: border-box // codepen fix
+    .hand
+      background: $blue-color
+      border-radius: 10px
+      width: 8px
+      height: 80px
+      position: absolute
+      bottom: 50%
+      left: 50%
+      transform: translate(-50%, 0)
+      transform-origin: bottom center
+      z-index: 20
+    .rotate
+      animation: hand-rotate 6s linear infinite normal
+
+@keyframes hand-rotate
+  from
+    transform: translate(-50%, 0) rotate(0)
+  to
+    transform: translate(-50%, 0) rotate(359deg)

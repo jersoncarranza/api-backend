@@ -1,6 +1,5 @@
 import {ModuleWithProviders} from '@angular/core';
 import{Routes, RouterModule} from '@angular/router';
-
 //Components
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
@@ -13,10 +12,12 @@ import { FollowingComponent } from './components/following/following.component';
 import {FollowedComponent} from './components/followed/followed.component';
 import {CodigoComponent} from './components/codigo/codigo.component';
 
+/**Admin */
+import {ListacodigoComponent} from './components/admin/codigo/listacodigo/listacodigo.component';
 import {UserGuard} from './services/guard/user.guard';
+import { DenegadoComponent } from './components/admin/permiso/denegado/denegado.component';
 const appRoutes: Routes = [
     {path:'', component: HomeComponent, canActivate:[UserGuard]},
-    
     {path:'home', component: HomeComponent, canActivate:[UserGuard]},
     {path: 'mis-datos', component: UserEditComponent, canActivate:[UserGuard]},
     {path: 'gente', component: UsersComponent,canActivate:[UserGuard]},
@@ -27,9 +28,15 @@ const appRoutes: Routes = [
     {path: 'seguidores/:id/:page', component: FollowedComponent, canActivate:[UserGuard]},
    
     {path:'login', component: LoginComponent},
-    //{path:'login', component: HomeComponent, canActivate:[UserGuard]},
     {path: 'registro', component: RegisterComponent} ,
-    {path:'codigo', component: CodigoComponent}
+    {path:'codigo', component: CodigoComponent},
+    //admin
+    {path:'admin', component:ListacodigoComponent, canActivate:[UserGuard]},
+    {path:'admin/:page', component:ListacodigoComponent, canActivate:[UserGuard]},
+
+    //Pagina de permisos
+    {path:'denegado', component:DenegadoComponent}
+
 ];
 
 export const appRoutingProviders: any[] = [];

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import {Router, ActivatedRoute, Params} from '@angular/router'; 
 import{UserService} from '../../services/user.service';
 import{GLOBAL} from '../../services/global';
 import{User} from '../../models/user';
@@ -74,7 +74,7 @@ export class UsersComponent implements OnInit {
 		  })
 	  }
 
-	  getUsers(page){
+	  getUsers(page){ 
 		  this._userService.getUsers(page).subscribe(
 			  response =>{
 				if(!response.users){

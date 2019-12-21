@@ -1,6 +1,11 @@
+<div id="uno"> <img class="icon"  src="assets/silueta.png"> </div>    
+ 
 <div class="alert alert-success" *ngIf="status==1">
-        Te enviaremos un correo con la clave generada después de validar la información <a [routerLink]="['/login']"> </a>
+        Te enviaremos un correo  después de validar la información <a [routerLink]="['/register']"> </a>
     </div>
+    <div class="alert alert-success" *ngIf="statusmsg==1">
+            Se te ha enviado un mensaje de informativo... en unos momentos validaremos los datos<a [routerLink]="['/register']"> </a>
+        </div>
     <div class="alert alert-danger" *ngIf="status==2 || status==4 || status==5 || status==7 || status==8 || status==9">
        Ocurrio un error !! Refresca la Página e intentalo de nuevo
     </div>

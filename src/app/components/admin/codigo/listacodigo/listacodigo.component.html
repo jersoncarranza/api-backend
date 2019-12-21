@@ -1,0 +1,51 @@
+<div *ngFor="let user of users">
+    <div class="row ">
+            <div class="col-1">  {{user.code }} </div>
+            <div class="col-4">  {{user.correo_peticion}}</div>
+            <div class="col-4">
+                {{(user.date | amFromUnix) | amLocale: 'es'| amDateFormat:'DD MMMM YYYY, h:mm a' }}
+            </div>
+            <div class="col-1">
+                
+                    <!-- <button (click)="openModal2(template,user)">Open Modal 1</button> -->
+                
+                <button (click)="openModal2(user)">
+                        <i class="fa fa-list-alt"></i>
+                   </button>
+                <ng-template #template>
+                    <div class="modal-header">
+                        <h4 class="modal-title pull-left">Modal</h4>
+                        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Ventana
+                    </div>
+                </ng-template>
+                <!-- <button (click)="sendPublication('modal-2')">Open Modal 2</button>
+                
+                <div>
+                    <jw-modal  id="modal-1" [user]="user">
+                        <p><input type="text" [(ngModel)]="bodyText" /></p>
+                        <button (click)="closeModal('modal-1');">Close</button>
+                    </jw-modal>
+                    
+                    <jw-modal id="modal-2" [user]="user">
+                        <h1 style="height:1000px">A Tall Custom Modal!</h1>
+                        <button (click)="closeModal('modal-2');">Close</button>
+                    </jw-modal>
+                </div> -->
+            </div>
+        </div>
+        
+    </div>
+    <!--Paginacion-->
+    <div class="row">
+        <div class="col-12 offset-md-1 col-md-8 offset-lg-1 col-lg-9">
+            <ul class="pagination pull-right">
+                <li class="page-item" disabled="false" ><a   class="page-link" [routerLink]="['/admin', prev_page]"> Anterior</a> </li>
+                <li class="page-item"  [attr.disabled]="pages != page"><a class="page-link" [routerLink]="['/admin', next_page ]"> Siguiente</a> </li>
+            </ul>
+        </div>
+    </div> 

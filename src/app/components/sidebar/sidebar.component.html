@@ -1,5 +1,5 @@
 
-<!-- formularios de publicaciones -->
+<!-- 1 Insertar (Escribir )  publicacion -->
 <div class="row">
     <div id="new-publication" class="col-12">
         <div class="alert alert-success" *ngIf="status == 'success'">
@@ -8,6 +8,7 @@
         <div class="alert alert-error" *ngIf="status == 'error'"> Error </div>
     </div>
 </div>
+
 <div class="border-publication">
     <form #newPubForm="ngForm" (ngSubmit)="onSubmit(newPubForm, $event); sendPublication($event)" class="col-12">
         <div class="row">
@@ -21,7 +22,6 @@
         
         <div class="row">
             <div class="col-10 col-md-10">
-                <!-- <input type="file" placeholder="Subir imagen"> -->
                 <input type="file" id="file" (change)="fileChangeEvent($event)" />
                 <label for="file"  class="btn-outline-primary">
                     <i class="fa fa-id-badge" aria-hidden="true"></i>
@@ -34,4 +34,3 @@
     </form>
 </div>  
     
-        

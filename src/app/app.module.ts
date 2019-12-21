@@ -24,41 +24,30 @@ import {UserGuard} from './services/guard/user.guard';
 import {MessagesModule} from './messages/components/messages.module';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { CodigoComponent } from './components/codigo/codigo.component';
+import { ListacodigoComponent } from './components/admin/codigo/listacodigo/listacodigo.component';
+import { ModalComponent } from './components/admin/codigo/modal/modal.component';
+import { PopupComponent } from './components/admin/codigo/popup/popup.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { DenegadoComponent } from './components/admin/permiso/denegado/denegado.component';
+import { MatchComponent } from './components/usuario/match/match.component';
+import { PopupmensajeComponent } from './components/usuario/popupmensaje/popupmensaje.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    HomeComponent,
-    UserEditComponent,
-    UsersComponent,
-    SidebarComponent,
-    TimelineComponent,
-    ProfileComponent,
-    PublicationsComponent,
-    FollowingComponent,
-    FollowedComponent,
-    CodigoComponent,
+  declarations: [  AppComponent, LoginComponent, RegisterComponent, HomeComponent,
+      			UserEditComponent, UsersComponent, SidebarComponent, TimelineComponent,
+    			ProfileComponent, PublicationsComponent, FollowingComponent, FollowedComponent,
+    			CodigoComponent, ListacodigoComponent, ModalComponent,  PopupComponent, DenegadoComponent, MatchComponent, PopupmensajeComponent,
     // AddComponent,
     // MainComponent,
     // ReceivedComponent,
     // SendedComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    routing,
-    MomentModule,
-    MessagesModule,
-    ReactiveFormsModule
+  imports: [ BrowserModule, FormsModule, HttpClientModule,   routing,
+    		MomentModule, MessagesModule,  ReactiveFormsModule, ModalModule.forRoot()
   ],
-  providers: [
-    appRoutingProviders,
-    UserService,
-    UserGuard
+  providers: [ appRoutingProviders, UserService, UserGuard
   ],
+  entryComponents: [ PopupComponent, PopupmensajeComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

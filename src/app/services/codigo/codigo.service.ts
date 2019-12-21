@@ -19,11 +19,18 @@ export class CodigoService {
         return this._http.post(this.url + 'save-codigo', params,{headers:headers})
         //console.log(codigo_to_register)
 	}
-	/*
-	register(user: User): Observable<any>{
-        let params = JSON.stringify(user);
-        let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.post(this.url + 'register', params,{headers:headers})
+
+	getuserCode(token='', page=1): Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type','application/json')
+									.set('Authorization', token);
+		return this._http.get(this.url + 'user-code/' + page,{headers: headers});	
 	}
-	*/
+
+	putEditCode(token='', codigo:Codigo):Observable<any>{
+		let params = JSON.stringify(codigo);
+		let headers = new HttpHeaders().set('Content-Type','application/json')
+									   .set('Authorization', token);
+		return this._http.put(this.url + 'edit-estado-pago', params,{headers: headers});		
+	}
+
 }

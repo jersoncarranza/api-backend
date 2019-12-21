@@ -40,7 +40,7 @@ form {
 	position: absolute;
 	top:35%;
 	left: 0.5rem;
-	-webkit-transform: translate(0%, -50%);
+	transform: translate(0%, -50%);
 			transform: translate(0%, -50%);
 	transition: all 0.5s ease-in-out;
 	padding: 0 0.25rem;
@@ -50,7 +50,7 @@ form {
 	border: 1px solid green;
   }
   form .form-row input[type="password"]:focus + label[data-placeholder]:after, form .form-row input[type="password"]:valid + label[data-placeholder]:after {
-	-webkit-transform: translate(-5%, -150%) scale(0.9, 0.9);
+	transform: translate(-5%, -150%) scale(0.9, 0.9);
 			transform: translate(-5%, -150%) scale(0.9, 0.9);
 	color: green;
 	background-color: white;
@@ -75,7 +75,7 @@ form .form-row input[type="text"] {
 	position: absolute;
 	top:35%;
 	left: 0.5rem;
-	-webkit-transform: translate(0%, -50%);
+	transform: translate(0%, -50%);
 			transform: translate(0%, -50%);
 	transition: all 0.5s ease-in-out;
 	padding: 0 0.25rem;
@@ -85,7 +85,7 @@ form .form-row input[type="text"] {
 	border: 1px solid green;
   }
   form .form-row input[type="text"]:focus + label[data-placeholder]:after, form .form-row input[type="text"]:valid + label[data-placeholder]:after {
-	-webkit-transform: translate(-5%, -150%) scale(0.9, 0.9);
+	transform: translate(-5%, -150%) scale(0.9, 0.9);
 			transform: translate(-5%, -150%) scale(0.9, 0.9);
 	color: green;
 	background-color: white;
@@ -105,7 +105,7 @@ form .form-row input[type="text"] {
   cursor: pointer;
   display: inline-block;
 
-  -webkit-user-select: none;
+  user-select: none;
   user-select: none;
 }
 .btn-radio:not(:first-child) {
@@ -165,8 +165,8 @@ form .form-row input[type="text"] {
 
 
 img.icon:hover {
-  -webkit-box-shadow: 0px 0px 0px 10px rgba(7, 238, 0, 0.4);
-  -webkit-transition:box-shadow .4s;
+  box-shadow: 0px 0px 0px 10px rgba(7, 238, 0, 0.4);
+  transition:box-shadow .4s;
 }
 
 
@@ -175,9 +175,9 @@ img.icon{
   
   background-color: rgba(255,255,255,.6);
   width:40px;
-  -webkit-box-shadow:0px 0px 0px 0px rgba(255,255,255,.1);
-  -webkit-border-radius: 50%;
-  -webkit-transition:box-shadow .4s;
+  box-shadow:0px 0px 0px 0px rgba(255,255,255,.1);
+  border-radius: 50%;
+  transition:box-shadow .4s;
  
 }
 .block-espacio{
