@@ -35,7 +35,7 @@ export class SidebarComponent implements OnInit {
 	}
 
   ngOnInit() {
-  }
+  } 
 	  
   	onSubmit(newPubForm, $event){
 			this._publicationService.addPublication(this.token, this.publication).subscribe(

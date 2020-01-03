@@ -31,12 +31,18 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { DenegadoComponent } from './components/admin/permiso/denegado/denegado.component';
 import { MatchComponent } from './components/usuario/match/match.component';
 import { PopupmensajeComponent } from './components/usuario/popupmensaje/popupmensaje.component';
+import { PanelComponent } from './components/admin/panel/panel.component';
+import { AcademiaComponent } from './components/admin/academia/academia.component';
+import { EscuelaComponent } from './components/admin/escuela/escuela.component';
+import { ProfesorComponent } from './components/admin/profesor/profesor/profesor.component';
+import { MateriaComponent } from './components/admin/materia/materia/materia.component';
+import { ProfesormateriaComponent } from './components/admin/profesormateria/profesormateria/profesormateria.component';
 
 @NgModule({
   declarations: [  AppComponent, LoginComponent, RegisterComponent, HomeComponent,
       			UserEditComponent, UsersComponent, SidebarComponent, TimelineComponent,
     			ProfileComponent, PublicationsComponent, FollowingComponent, FollowedComponent,
-    			CodigoComponent, ListacodigoComponent, ModalComponent,  PopupComponent, DenegadoComponent, MatchComponent, PopupmensajeComponent,
+    			CodigoComponent, ListacodigoComponent, ModalComponent,  PopupComponent, DenegadoComponent, MatchComponent, PopupmensajeComponent, PanelComponent, AcademiaComponent, EscuelaComponent, ProfesorComponent, MateriaComponent, ProfesormateriaComponent,
     // AddComponent,
     // MainComponent,
     // ReceivedComponent,

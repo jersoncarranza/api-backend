@@ -9,40 +9,42 @@ import {TimelineService} from '../../services/timeline.service';
 import {Publication} from '../../models/publication';
 import * as $ from 'jquery'; 
 @Component({
-  selector: 'app-publications',
-  templateUrl: './publications.component.html',
-  styleUrls: ['./publications.component.css'],
-  providers: [UserService, TimelineService]
+	selector: 'app-publications',
+	templateUrl: './publications.component.html',
+	styleUrls: ['./publications.component.css'],
+	providers: [UserService, TimelineService]
 })
 export class PublicationsComponent implements OnInit {
-
-  public identity;
+	
+	public identity;
 	public token;
 	public title: string;
 	public url: string;
-
+	
 	public status: string;
 	public page: number; 
 	public total: number;
 	public pages: number;
 	public publications: Publication[];
 	public itemPerPage;
+	public urlperfil:String;
 	@Input() user: string;
 	
-  constructor(
+	constructor(
 		private _route: ActivatedRoute,
 		private _router: Router,
 		private _userService: UserService,
 		private _publicationService: TimelineService
-
-	) { 
-		this.title='Publicaitons';
-		this.identity = this._userService.getIdendity();
-		this.token = this._userService.getToken();
-		this.url = GLOBAL.url;
-		this.page = 1;
-	}
-
+		
+		) { 
+			this.title='Publications';
+			this.identity = this._userService.getIdendity();
+			this.token = this._userService.getToken();
+			this.url = GLOBAL.urlcloudinary;
+			this.page = 1;
+			this.urlperfil='https://res.cloudinary.com/djempmk2c/image/upload/';
+		}
+		
   ngOnInit() {
 	  this.getPublications(this.user, this.page)
   }

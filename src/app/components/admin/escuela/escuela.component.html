@@ -1,0 +1,49 @@
+<div class="container">
+<form  [formGroup]="escuelaForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-5">
+                <div class="form-group form-row">
+                <input formControlName="name" type="text" name="name"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors}" required>
+                <label alt="Label" data-placeholder="Nombre"></label>
+                <div *ngIf="(submitted && f.name.errors)" class="invalid-feedback">
+                    <span *ngIf="f.name.errors.required">El nombre es requerido</span>
+                </div> 
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="form-group form-row">
+                    <input formControlName="facultad"  type="text" name="facultad"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.facultad.errors}" required>
+                    <label alt="Label" data-placeholder="Facultad"></label>
+                    <div *ngIf="(submitted && f.facultad.errors)" class="invalid-feedback">
+                        <span *ngIf="f.facultad.errors.required">El nombre es requerido</span>
+                    </div> 
+                    </div>
+            </div>
+            <div class="col-1">
+                <input type="submit" value="►" class="btn btn-outline-success">
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Botones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let escuela of escuelasLista">
+                <th scope="row">1</th>
+                <td>{{escuela.nombre }}</td>
+                <td>{{escuela.facultad }} </td>
+                <td>@mdo</td>
+              </tr>
+            </tbody>
+          </table>
+
+    </div>
+   
+</div>

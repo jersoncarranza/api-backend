@@ -40,7 +40,7 @@ export class UsersComponent implements OnInit {
 		this.user = this._userService.getIdendity();
 		this.identity = this.user;
 		this.token = this._userService.getToken();
-		this.url = GLOBAL.url;	
+		this.url = GLOBAL.urlcloudinary;	
 		this.prev_enable = false;
 	}
 

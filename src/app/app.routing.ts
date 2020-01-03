@@ -16,6 +16,7 @@ import {CodigoComponent} from './components/codigo/codigo.component';
 import {ListacodigoComponent} from './components/admin/codigo/listacodigo/listacodigo.component';
 import {UserGuard} from './services/guard/user.guard';
 import { DenegadoComponent } from './components/admin/permiso/denegado/denegado.component';
+import {PanelComponent} from './components/admin/panel/panel.component'
 const appRoutes: Routes = [
     {path:'', component: HomeComponent, canActivate:[UserGuard]},
     {path:'home', component: HomeComponent, canActivate:[UserGuard]},
@@ -31,8 +32,9 @@ const appRoutes: Routes = [
     {path: 'registro', component: RegisterComponent} ,
     {path:'codigo', component: CodigoComponent},
     //admin
-    {path:'admin', component:ListacodigoComponent, canActivate:[UserGuard]},
-    {path:'admin/:page', component:ListacodigoComponent, canActivate:[UserGuard]},
+    {path:'admin', component:PanelComponent, canActivate:[UserGuard]},
+    //{path:'admin', component:ListacodigoComponent, canActivate:[UserGuard]},
+    //{path:'admin/:page', component:ListacodigoComponent, canActivate:[UserGuard]},
 
     //Pagina de permisos
     {path:'denegado', component:DenegadoComponent}

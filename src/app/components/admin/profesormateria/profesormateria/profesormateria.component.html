@@ -1,0 +1,42 @@
+
+<form  [formGroup]="candidatoForm" (ngSubmit)="onSubmitCandidato()">
+    <div class="row">
+        <div class="col-4"> 
+            <select id="listCenTra" formControlName="profesor" name="profesor" (change)="onChangeSelect($event.target.value)" required>
+                <option *ngFor="let dato of profesoresLista" value="{{dato._id}}" >{{dato.nombre}} {{dato.apellidos}}</option>
+            </select>
+        </div>
+        <div class="col-4">
+            <select id="listCenTra" formControlName="materia" name="materia"  required>
+                <option *ngFor="let dato of materiasLista" value="{{dato._id}}" >{{dato.nombre}}</option>
+            </select>
+
+      
+        </div>
+        <div class="col-2">
+            <input type="submit" value="►" class="btn btn-outline-success">
+        </div>
+    </div>
+</form>
+<div class="row">
+    <div class="col-12">
+        <div >
+              <table class="table">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Materia</th>
+                    <th scope="col">Semestre</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr  *ngFor="let materia of respuesta">
+                    <th scope="row">1</th>
+                    <td>{{materia.materia}}</td>
+                    <td>{{materia.semestre}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

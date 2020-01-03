@@ -12,7 +12,7 @@
                 <div class="row ">
                 <div class="col-offset-1 col-2 col-sm-offset-1 col-sm-2 col-md-offset-1 col-md-2 col-lg-offset-1 col-lg-1">
                     <div class="image-user">
-                        <img src="{{url + 'get-image-user/'+ user.image}}" *ngIf="user.image" alt="">
+                        <img src="{{url + user.image}}" *ngIf="user.image" alt="">
                         <img src="assets/user.jpg" *ngIf="!user.image" alt="twenty">
                     </div>
                 </div>

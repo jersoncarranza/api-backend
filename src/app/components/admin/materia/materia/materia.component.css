@@ -1,0 +1,213 @@
+
+.invalid-error{
+    font-size: 80%;
+    color:#dc3545;
+  }
+  
+  .form-control.is-invalid, .was-validated .form-control:invalid {
+    background-image: none;
+  }
+  form {
+      /* Temp */
+      padding: 1rem;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      /* End Temp */
+    }
+    form .form-row {
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    form .form-row:last-child {
+      margin-bottom: 0;
+    }
+    form .form-row input[type="password"] {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      transition: all 0.5s ease-in-out;
+      outline: 0;
+    }
+    form .form-row input[type="password"] + label[data-placeholder] {
+      pointer-events: none;
+    }
+    form .form-row input[type="password"] + label[data-placeholder]:after {
+      content: attr(data-placeholder);
+      display: block;
+      position: absolute;
+      top:35%;
+      left: 0.5rem;
+      transform: translate(0%, -50%);
+              transform: translate(0%, -50%);
+      transition: all 0.5s ease-in-out;
+      padding: 0 0.25rem;
+      background-color: rgba(255, 255, 255, 0);
+    }
+    form .form-row input[type="password"]:focus, form .form-row input[type="password"]:valid {
+      border: 1px solid green;
+    }
+    form .form-row input[type="password"]:focus + label[data-placeholder]:after, form .form-row input[type="password"]:valid + label[data-placeholder]:after {
+      transform: translate(-5%, -150%) scale(0.9, 0.9);
+              transform: translate(-5%, -150%) scale(0.9, 0.9);
+      color: green;
+      background-color: white;
+    }
+    
+  /***/
+  form .form-row input[type="text"] {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      transition: all 0.5s ease-in-out;
+      outline: 0;
+    }
+    form .form-row input[type="text"] + label[data-placeholder] {
+      pointer-events: none;
+    }
+    form .form-row input[type="text"] + label[data-placeholder]:after {
+      content: attr(data-placeholder);
+      display: block;
+      position: absolute;
+      top:35%;
+      left: 0.5rem;
+      transform: translate(0%, -50%);
+              transform: translate(0%, -50%);
+      transition: all 0.5s ease-in-out;
+      padding: 0 0.25rem;
+      background-color: rgba(255, 255, 255, 0);
+    }
+    form .form-row input[type="text"]:focus, form .form-row input[type="text"]:valid {
+      border: 1px solid green;
+    }
+    form .form-row input[type="text"]:focus + label[data-placeholder]:after, form .form-row input[type="text"]:valid + label[data-placeholder]:after {
+      transform: translate(-5%, -150%) scale(0.9, 0.9);
+              transform: translate(-5%, -150%) scale(0.9, 0.9);
+      color: green;
+      background-color: white;
+    }
+  
+  
+    
+.select {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    color: #555;
+  }
+  .select select {
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    padding: .5rem 2.25rem .5rem 1rem;
+    line-height: 1.5;
+    color: #555;
+    background-color: #eee;
+    border: 0;
+    border: 1px solid #D0D0D0;
+    border-radius: .25rem;
+    cursor: pointer;
+    outline: 0;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+  }
+  /* Undo the Firefox inner focus ring */
+  .select select:focus:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+  /* Dropdown arrow */
+  .select:after {
+    position: absolute;
+    top: 50%;
+    right: 1.25rem;
+    display: inline-block;
+    content: "";
+    width: 0;
+    height: 0;
+    margin-top: -.15rem;
+    pointer-events: none;
+    border-top: .35rem solid;
+    border-right: .35rem solid transparent;
+    border-bottom: .35rem solid transparent;
+    border-left: .35rem solid transparent;
+  }
+  
+  .select select:focus {
+    box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem #0074d9;
+  }
+  
+  /* Active/open */
+  .select select:active {
+    color: #fff;
+    background-color: #0074d9;
+  }
+  
+  /* Hide the arrow in IE10 and up */
+  .select select::-ms-expand {
+    display: none;
+  }
+  
+  /* Media query to target Firefox only */
+  @-moz-document url-prefix() {
+    /* Firefox hack to hide the arrow */
+    .select select {
+      text-indent: 0.01px;
+      text-overflow: '';
+      padding-right: 1rem;
+    }
+  
+    /* <option> elements inherit styles from <select>, so reset them. */
+    .select option {
+      background-color: white;
+    }
+  }
+  
+  /* IE9 hack to hide the arrow */
+  @media screen and (min-width:0\0) {
+    .select select {
+      z-index: 1;
+      padding: .5rem 1.5rem .5rem 1rem;
+    }
+    .select:after {
+      z-index: 5;
+    }
+    .select:before {
+      position: absolute;
+      top: 0;
+      right: 1rem;
+      bottom: 0;
+      z-index: 2;
+      content: "";
+      display: block;
+      width: 1.5rem;
+      background-color: #eee;
+    }
+    .select select:hover,
+    .select select:focus,
+    .select select:active {
+      color: #555;
+      background-color: #eee;
+    }
+  }
+  
+  
+
+  
+  /* Doesn't matter */
+  body {
+    background: #EBEDF1;
+  }
+  .widget {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #F3F3F3;
+    padding: 20px;
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+  }

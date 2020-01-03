@@ -1,0 +1,49 @@
+<div class="container">
+    <form  [formGroup]="profesorForm" (ngSubmit)="onSubmitProfesor()">
+            <div class="row">
+                <div class="col-5">
+                    <div class="form-group form-row">
+                    <input formControlName="nombres" type="text" name="nombres"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombres.errors}" required>
+                    <label alt="Label" data-placeholder="Nombre"></label>
+                    <div *ngIf="(submitted && f.nombres.errors)" class="invalid-feedback">
+                        <span *ngIf="f.nombres.errors.required">El nombre es necesario</span>
+                    </div> 
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="form-group form-row">
+                        <input formControlName="apellidos"  type="text" name="apellidos"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.apellidos.errors}" required>
+                        <label alt="Label" data-placeholder="apellidos"></label>
+                        <div *ngIf="(submitted && f.apellidos.errors)" class="invalid-feedback">
+                            <span *ngIf="f.apellidos.errors.required">El apellido es necesario</span>
+                        </div> 
+                        </div>
+                </div>
+                <div class="col-1">
+                    <input type="submit" value="►" class="btn btn-outline-success">
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Botones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr  *ngFor="let profesor of profesoresLista">
+                    <th scope="row">1</th>
+                    <td>{{profesor.nombre }}</td>
+                    <td>{{profesor.apellidos }} </td>
+                    <td>@mdo</td>
+                  </tr>
+                </tbody>
+              </table>
+    
+        </div> 
+       
+    </div>

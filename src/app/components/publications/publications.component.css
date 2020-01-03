@@ -14,9 +14,12 @@
     border: 0.1rem solid salmon;
 }
 img{
-    width: 50px;
+    width: 200px;
 }
 
+.img-publication{
+    width: 200px;
+}
 .border-publication{
     padding-top: 1em;
     padding-bottom: 0.5em;
@@ -36,7 +39,7 @@ img{
     .avatar{
         width: 100px;
     }
-    img{
+    .img-profile{
         width: 25px; 
         height:  25px;     
         position: absolute;
@@ -58,7 +61,7 @@ img{
 
 
 
-    img{
+    .img-profile{
         height: 35px;
         width: 35px;      
         position: absolute;
@@ -76,7 +79,7 @@ img{
 
 
 
-    img{
+    .img-profile{
         height: 35px;
         width: 35px;      
         position: absolute;

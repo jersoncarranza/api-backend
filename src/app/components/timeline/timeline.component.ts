@@ -48,7 +48,7 @@ export class TimelineComponent implements OnInit {
 		this.title='Inicio';
 		this.identity = this._userService.getIdendity();
 		this.token = this._userService.getToken();
-		this.url = GLOBAL.url;
+		this.url = GLOBAL.urlcloudinary;
 		this.page = 1;
 	}
 

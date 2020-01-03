@@ -15,7 +15,7 @@ import {MustMatch} from '../../services/validator/must-match.validator';
   styleUrls: ['./register.component.css'],
   providers:[UserService,EntidadService]
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit { 
 	
 	banderaCodigo: Boolean;//Universidades registradas 
 	 

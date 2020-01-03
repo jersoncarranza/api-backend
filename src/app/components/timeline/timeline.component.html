@@ -37,7 +37,7 @@
                              
                             <div class="col-2 col-md-2 col-lg-1">
                                 <div class="image-user">
-                                    <img src="{{url + 'get-image-user/'+ publication.user.image}}" *ngIf="publication.user.image" alt="">
+                                    <img src="{{url + publication.user.image}}" *ngIf="publication.user.image" alt="">
                                     <img src="assets/user.jpg" *ngIf="!publication.user.image" alt="twenty">
                                 </div>  
                             </div>
@@ -68,9 +68,10 @@
                                         </div> 
                                     </div>
                                 </div>
+                                
                                 <div class="row" *ngIf="publication.file != 'null' ">
                                     <div class="col-12 text-center" >
-                                        <img class="img-pub" src="{{ url + 'get-image-pub/' + publication.file}}" alt="">
+                                        <img class="img-pub" src="{{ url  + publication.file}}" alt="">
                                     </div>
                                 </div>
                             </div>

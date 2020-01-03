@@ -2,7 +2,7 @@
         <div class="col-2 col-md-2 col-lg-2">     
             <div id="data-profile" *ngIf="user">
                 <div class="avatar">
-                    <img class="img-profile" src="{{url + 'get-image-user/' + user.image}}" *ngIf='user.image' alt="">
+                    <img class="img-profile" src="{{url  + user.image}}" *ngIf='user.image' alt="">
                     <img class="img-profile" src="assets/user.png" *ngIf='!user.image' alt="">
                 </div>
                 <span class="badge  badge-secondary" *ngIf="followed">te sigue</span>

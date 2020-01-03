@@ -1,0 +1,73 @@
+<div class="container">
+    <form  [formGroup]="materiaForm" (ngSubmit)="onSubmitMateria()">
+            <div class="row">
+                <div class="col-12">  
+                    <div class="float-right">
+                        <label>Escuela: </label>
+                        <select id="listCenTra" formControlName="escuela" name="escuela" *ngFor="let dato of escuelasLista" required>
+                        <option value="{{dato._id}}" >{{dato.nombre}}</option>
+                        </select>
+                        <div *ngIf="(submitted && f.escuela.errors)" class="invalid-feedback">
+                            <span *ngIf="f.escuela.errors.required">El escuela es necesario</span>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5">
+                    <div class="form-group form-row">
+                    <input formControlName="nombre" type="text" name="nombre"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors}" required>
+                    <label alt="Label" data-placeholder="nombre materia"></label>
+                    <div *ngIf="(submitted && f.nombre.errors)" class="invalid-feedback">
+                        <span *ngIf="f.nombre.errors.required">El nombre es necesario</span>
+                    </div> 
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="select">
+                        <select formControlName="semestre" name="semestre" required>
+                            <option value="1" selected disabled hidden>1</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <div *ngIf="(submitted && f.semestre.errors)" class="invalid-feedback">
+                        <span *ngIf="f.semestre.errors.required">El semestre es necesario</span>
+                    </div> 
+                </div>
+                <div class="col-1">
+                    <input type="submit" value="►" class="btn btn-outline-success">
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">semestre</th>
+                    <th scope="col">Botones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr  *ngFor="let materia of materiasLista">
+                    <th scope="row">1</th>
+                    <td>{{materia.nombre }}</td>
+                    <td>{{materia.semestre }} </td>
+                    <td>@mdo</td>
+                  </tr>
+                </tbody>
+              </table>
+    
+        </div> 
+       
+    </div>

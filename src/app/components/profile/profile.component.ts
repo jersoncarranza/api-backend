@@ -37,7 +37,7 @@ export class ProfileComponent implements OnInit {
 		  this.identity = this._userService.getIdendity();
 		  this.token = this._userService.getToken();
 		  this.stats = this._userService.getStats();
-		  this.url = GLOBAL.url;
+		  this.url = GLOBAL.urlcloudinary;
 		  this.following = false;
 		  this.followed = false;
 	  }
