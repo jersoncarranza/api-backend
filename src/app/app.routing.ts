@@ -11,6 +11,7 @@ import {ProfileComponent} from './components/profile/profile.component';
 import { FollowingComponent } from './components/following/following.component';
 import {FollowedComponent} from './components/followed/followed.component';
 import {CodigoComponent} from './components/codigo/codigo.component';
+import {VotosComponent} from './components/usuario/votos/votos/votos.component';
 
 /**Admin */
 import {ListacodigoComponent} from './components/admin/codigo/listacodigo/listacodigo.component';
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
     {path:'', component: HomeComponent, canActivate:[UserGuard]},
     {path:'home', component: HomeComponent, canActivate:[UserGuard]},
     {path: 'mis-datos', component: UserEditComponent, canActivate:[UserGuard]},
+    {path: 'votos', component: VotosComponent, canActivate:[UserGuard]},
     {path: 'gente', component: UsersComponent,canActivate:[UserGuard]},
     {path: 'gente/:page', component: UsersComponent, canActivate:[UserGuard]},
     {path: 'timeline', component: TimelineComponent, canActivate:[UserGuard]},

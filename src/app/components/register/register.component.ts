@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators,FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import {User} from '../../models/user';
 import {Entidad} from '../../models/entidad';
@@ -41,6 +41,14 @@ export class RegisterComponent implements OnInit {
 		this.title = 'Registrate';
 		this.user = new User("","","","","","ROLE_USER","","","","","");
 		this.banderaCodigo  =true;
+		this.registerForm = new FormGroup({
+			name: new FormControl(),
+			email: new FormControl(),
+			password: new FormControl(),
+			confirmPassword: new FormControl(),
+			rdoGenero: new FormControl(),
+			codigo: new FormControl()
+		 });
   	}
 
   	ngOnInit() {
@@ -59,7 +67,7 @@ export class RegisterComponent implements OnInit {
             password: ['', [Validators.required, Validators.minLength(6)]],
 			confirmPassword: ['', Validators.required],
 			rdoGenero:['',Validators.required],
-			codigo:   ['',Validators.required],
+			codigo:   [''],
         }, {
             validator: MustMatch('password', 'confirmPassword')
         });
@@ -71,7 +79,7 @@ export class RegisterComponent implements OnInit {
 			this._router.navigate(['/']);
 		}
   	}
-	valuechangeEmail(text:String){
+	valuechangeEmail(text:String){ //solo para universitarios
 		var split = text.split("@");
 		var dominio   = split[1];
 		this.banderaCodigo=true;
@@ -109,7 +117,7 @@ export class RegisterComponent implements OnInit {
 	  )
 	}
 
-	  public role: string;
+	public role: string;
   	onSubmit(){
 		this.submitted = true;
 		switch (this.registerForm.value.name) {
@@ -117,7 +125,7 @@ export class RegisterComponent implements OnInit {
 		case 'M':this.registerForm.value.codigo='KENNY';break; 
 		case 'H':; break;
 		default: break;
-		}
+		} 
 	
 
 	if(this.registerForm.valid || 

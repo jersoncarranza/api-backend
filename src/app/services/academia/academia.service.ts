@@ -7,6 +7,8 @@ import {Escuela} from '../../models/escuela';
 import {Profesor} from '../../models/profesor';
 import{Materia} from '../../models/materia';
 import{ProfesorMateria} from '../../models/profesorMateria';
+import{EstrellasEvaluacion} from '../../models/estrellasEvaluacion';
+
 
 @Injectable({
   providedIn: 'root'
@@ -94,5 +96,31 @@ export class AcademiaService {
 		let headers = new HttpHeaders().set('Content-Type','application/json')
 										.set('Authorization', this.token);
 		return this._http.get(this.url + 'list-profesormateria/'+profesor,{headers: headers});	
+	}
+
+	/***Evaluar los Profesores*** */
+
+	getEvaluarProfesor(): Observable<any>{
+		this.getToken();
+		let headers = new HttpHeaders().set('Content-Type','application/json')
+										.set('Authorization', this.token);
+		return this._http.get(this.url + 'list-evaluacionProfesor',{headers: headers});	
+	}
+	/*******Save Calificacion ****/
+	saveEstrellasEvaluacion(EstrellasEvaluacion: EstrellasEvaluacion): Observable<any>{
+		this.getToken();
+		let params = JSON.stringify(EstrellasEvaluacion);
+		console.log(EstrellasEvaluacion);
+
+		let headers = new HttpHeaders().set('Content-Type', 'application/json')
+									   .set('Authorization', this.token);		
+        return this._http.post(this.url + 'save-estrellasevaluacion', params,{headers:headers})
+	}
+	/***Obteniendo las estrellas */
+	getEstrellasEvaluacionProfesor(): Observable<any>{
+		this.getToken();
+		let headers = new HttpHeaders().set('Content-Type','application/json')
+										.set('Authorization', this.token);
+		return this._http.get(this.url + 'list-estrellasevaluacionprofesores',{headers: headers});	
 	}
 }

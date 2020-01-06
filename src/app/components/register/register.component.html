@@ -9,7 +9,7 @@
                 <div class="alert alert-danger" *ngIf="status==2 || status==4 || status==5 || status==7 || status==8 || status==9">
                    {{message}}
                 </div>
-                <form  [formGroup]="escuelaForm" (ngSubmit)="onSubmit()">
+                <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                         <div class="form-group form-row">
                             <input type="text" name="name" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors}" required>
                             <label alt="Label" data-placeholder="Nombre"></label>

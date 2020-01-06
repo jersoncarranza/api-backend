@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row"  >
+        <div class="col-3" *ngFor="let dato of respuesta">
+            <div (mouseenter) ="mouseEnterStartGeneral(dato._id)" 
+                (mouseleave) ="mouseLeaveStartGeneral(dato._id)">
+                
+                <div class="d-flex align-items-stretch"> 
+                    <p class="text-capitalize font-weight-bold size">  
+                        {{dato.materia}} {{dato.calificacion}}
+                    </p>
+                </div>     
+                <p class="text-capitalize size-nombre">{{dato.profesor}} {{dato.profesorapellidos}}</p>     
+
+                <div class="visibled-init d-flex justify-content-start" id="{{dato._id+111}}"(mouseenter) ="mouseEnterStartInd(dato._id) "  (mouseleave) ="mouseLeaveStartInd(dato._id)"  >     
+                    <p class="clasificacion"> 
+                    <input id="{{dato._id+5}}" type="radio" name="estrellas" (click)="valor(dato._id,5)" value="5">
+                    <label for="{{dato._id+5}}"><i class="far fa-star"></i> </label>
+                            <!-- {{dato._id}} -->
+                    <input id="{{dato._id+4}}" type="radio" name="estrellas" (click)="valor(dato._id,4)" value="4">
+                    <label for="{{dato._id+4}}" ><i class="far fa-star"></i> </label>
+
+                    <input id="{{dato._id+3}}" type="radio" name="estrellas" (click)="valor(dato._id,3)" value="3">
+                    <label for="{{dato._id+3}}" > <i class="far fa-star"></i> </label>
+                    
+                    <input id="{{dato._id+2}}" type="radio" name="estrellas" (click)="valor(dato._id,2)" value="2">
+                    <label for="{{dato._id+2}}" ><i class="far fa-star"></i></label>
+                    
+                    <input id="{{dato._id+1}}" type="radio" name="estrellas" (click)="valor(dato._id,1)" value="1">
+                    <label for="{{dato._id+1}}" ><i class="far fa-star"></i></label>
+                    </p>
+                </div>
+
+                <div class="position-start-view position-result-start" id="{{dato._id+999}}"  (mouseenter) ="mouseEnterStartGeneral(dato._id)" 
+                                    class="d-flex justify-content-start">
+                    <p class=""> 
+                    <label [className]="dato.calificacion > 0 ? 'activestart':'inactivestart'" for="{{dato._id+11}}" ><i class="far fa-star"></i></label> 
+                    <label [className]="dato.calificacion > 1 ? 'activestart':'inactivestart'" for="{{dato._id+22}}" ><i class="far fa-star"></i></label>
+                    <label [className]="dato.calificacion > 2 ? 'activestart':'inactivestart'" for="{{dato._id+33}}" ><i class="far fa-star"></i></label>
+                    <label [className]="dato.calificacion > 3 ? 'activestart':'inactivestart'" for="{{dato._id+44}}" ><i class="far fa-star"></i> </label>
+                    <label [className]="dato.calificacion > 4 ? 'activestart':'inactivestart'" for="{{dato._id+55}}"><i class="far fa-star"></i></label> 
+                    </p>
+                </div>
+           
+            </div>
+        </div>
+    </div>
+</div>

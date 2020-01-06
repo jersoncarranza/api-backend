@@ -28,7 +28,7 @@ export class PublicationsComponent implements OnInit {
 	public publications: Publication[];
 	public itemPerPage;
 	public urlperfil:String;
-	@Input() user: string;
+	@Input() user: string; 
 	
 	constructor(
 		private _route: ActivatedRoute,

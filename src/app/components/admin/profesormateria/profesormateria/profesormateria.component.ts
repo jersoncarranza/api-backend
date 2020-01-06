@@ -30,7 +30,7 @@ export class ProfesormateriaComponent implements OnInit {
 				materia: new FormControl(),
 				profesor: new FormControl()
 			 });
-			 this.profesorMateriaSave = new ProfesorMateria( "","","",1,true,"","Juli0 2019 - Agosto 2020",1,0,0)
+			 this.profesorMateriaSave = new ProfesorMateria( "","","",1,true,"","Julio 2019 - Febrero 2020",1,0,0)
 	  }
 
 	ngOnInit() {
@@ -121,7 +121,6 @@ export class ProfesormateriaComponent implements OnInit {
 			response => {
 				if(response){
 					this.respuesta =response.cursor;
-					console.log('this.respuesta'+this.respuesta);
 					this.status = response.status;
 					}else{
 						this.status = response.status;	 

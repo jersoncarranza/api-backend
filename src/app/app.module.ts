@@ -37,12 +37,13 @@ import { EscuelaComponent } from './components/admin/escuela/escuela.component';
 import { ProfesorComponent } from './components/admin/profesor/profesor/profesor.component';
 import { MateriaComponent } from './components/admin/materia/materia/materia.component';
 import { ProfesormateriaComponent } from './components/admin/profesormateria/profesormateria/profesormateria.component';
+import { VotosComponent } from './components/usuario/votos/votos/votos.component';
 
 @NgModule({
   declarations: [  AppComponent, LoginComponent, RegisterComponent, HomeComponent,
       			UserEditComponent, UsersComponent, SidebarComponent, TimelineComponent,
     			ProfileComponent, PublicationsComponent, FollowingComponent, FollowedComponent,
-    			CodigoComponent, ListacodigoComponent, ModalComponent,  PopupComponent, DenegadoComponent, MatchComponent, PopupmensajeComponent, PanelComponent, AcademiaComponent, EscuelaComponent, ProfesorComponent, MateriaComponent, ProfesormateriaComponent,
+    			CodigoComponent, ListacodigoComponent, ModalComponent,  PopupComponent, DenegadoComponent, MatchComponent, PopupmensajeComponent, PanelComponent, AcademiaComponent, EscuelaComponent, ProfesorComponent, MateriaComponent, ProfesormateriaComponent, VotosComponent,
     // AddComponent,
     // MainComponent,
     // ReceivedComponent,
